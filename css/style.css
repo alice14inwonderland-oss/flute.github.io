@@ -1,0 +1,20 @@
+.slideshow-container{
+      max-width: 600px;
+      margin: auto;   /*  cyuuouhaichi　*/
+}
+
+img{
+   width: 100%;
+
+}
+
+h1,.navigation{
+text-align: center ; 
+
+}
+
+/*  ナビゲーションボタン  手の形　*/
+.prev, .next{
+     cursor: pointer;
+
+}
