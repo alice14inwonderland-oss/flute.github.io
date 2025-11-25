@@ -1,36 +1,37 @@
-<!DOCTYPE html>
+  <!DOCTYPE html>
 <html lang="ja">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>スライドショー</title>
+    <title>Flute Library</title>
+    <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;600&display=swap" rel="stylesheet">
 
-     <link rel="stylesheet" href="css/style.css">
+    <!-- 外部CSS を読み込む -->
+    <link rel="stylesheet" href="style.css">
 </head>
-
 <body>
- <h1>スライドショー</h1>
+    <header>
+        <h1>Flute Library</h1>
+        <p class="subtitle">フルート作品・作曲家の辞書サイト</p>
+        <p class="subtitle">開発中・・・sorry 少々お待ちください。</p>
+    </header>
 
-<div class="slideshow-container">
-   <div class="mySlides">
-       <img src="img/image1.jpg" alt="画像１枚目">
-   </div>
+    <section class="search-section">
+      <a href="composers/composer_list_page.html" class="card">
 
-   <div class="mySlides">
-       <img src="img/image2.jpg" alt=“画像２枚目”>
-   </div>
-
-   <div class="mySlides">
-       <img src="img/image3.jpg" alt="画像３枚目">
-   </div>
- </div>
-
- <div class="navigation">
-   <a class="prev" onclick="plusSlides(-1)">&lt;</a>
-   <a class="next" onclick="plusSlides(1)">&gt;</a>
- </div>
- 
- <script src="js/slideshow.js"></script>
-    
+       
+            <div class="icon-circle">🎼</div>
+            <h3>作曲家から探す</h3>
+      
+    </a>
+        <div class="card">
+            <div class="icon-circle c-green">📅</div>
+            <h3>年代から探す</h3>
+        </div>
+        <div class="card">
+            <div class="icon-circle c-yellow">🎵</div>
+            <h3>ジャンルから探す</h3>
+        </div>
+    </section>
 </body>
 </html>

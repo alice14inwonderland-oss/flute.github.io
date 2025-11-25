@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>作曲家一覧 | Flute Library</title>
+    <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../style.css" />
+    <style>
+        .composer-grid {
+            max-width: 1000px;
+            margin: auto;
+            padding: 40px 20px;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 25px;
+        }
+        .composer-card {
+            background: white;
+            padding: 20px;
+            border-radius: 18px;
+            text-align: center;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.08);
+            transition: transform 0.2s ease;
+            text-decoration: none;
+            color: inherit;
+            display: block;
+        }
+        .composer-card:hover {
+            transform: translateY(-5px);
+        }
+        .composer-img {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin-bottom: 15px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+        }
+        .composer-name {
+            font-size: 1.2rem;
+            font-weight: 600;
+            margin-bottom: 5px;
+        }
+        .years {
+            color: #777;
+            font-size: 0.9rem;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>作曲家一覧</h1>
+        <p class="subtitle">フルート作品のある主要作曲家</p>
+    </header>
+
+    <section class="composer-grid">
+        <!-- Reinecke -->
+        <a href="reinecke.html" class="composer-card">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/7/7b/Carl_Reinecke_1890.jpg" class="composer-img" alt="Carl Reinecke" />
+            <div class="composer-name">Carl Reinecke</div>
+            <div class="years">1824 - 1910</div>
+        </a>
+
+        <!-- J.S. Bach -->
+        <a href="#" class="composer-card">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/6/6a/Johann_Sebastian_Bach.jpg" class="composer-img" alt="J.S. Bach" />
+            <div class="composer-name">J.S. Bach</div>
+            <div class="years">1685 - 1750</div>
+        </a>
+
+        <!-- Telemann -->
+        <a href="#" class="composer-card">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/0/0b/Georg_Philipp_Telemann.jpg" class="composer-img" alt="Telemann" />
+            <div class="composer-name">G.P. Telemann</div>
+            <div class="years">1681 - 1767</div>
+        </a>
+
+        <!-- Poulenc -->
+        <a href="#" class="composer-card">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/9/9f/Poulenc_%28foto_av_Pierre_Aubin%29.jpg" class="composer-img" alt="Francis Poulenc" />
+            <div class="composer-name">Francis Poulenc</div>
+            <div class="years">1899 - 1963</div>
+        </a>
+
+        <!-- Jolivet -->
+        <a href="#" class="composer-card">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/b/b5/Andr%C3%A9_Jolivet_1966.png" class="composer-img" alt="Andre Jolivet" />
+            <div class="composer-name">André Jolivet</div>
+            <div class="years">1905 - 1974</div>
+        </a>
+    </section>
+
+    <div class="back-link" style="text-align:center; margin-bottom:40px;">
+        <a href="../index.html">← トップへ戻る</a>
+    </div>
+
+</body>
+</html>

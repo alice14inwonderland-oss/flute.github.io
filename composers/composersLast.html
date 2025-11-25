@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>作曲家一覧 | Flute Library</title>
+
+    <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;600&display=swap" rel="stylesheet">
+
+    <style>
+        body {
+            margin: 0;
+            font-family: 'Quicksand', sans-serif;
+            background: #F2F4F3;
+            color: #4A4A4A;
+        }
+
+        header {
+            text-align: center;
+            padding: 40px 20px;
+        }
+
+        h1 {
+            font-size: 2.2rem;
+            margin-bottom: 10px;
+        }
+
+        /* コントロールエリア */
+        .controls {
+            max-width: 900px;
+            margin: auto;
+            padding: 20px;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+            justify-content: center;
+        }
+
+        select, input {
+            padding: 10px 14px;
+            border-radius: 12px;
+            border: 1px solid #ccc;
+            font-size: 1rem;
+        }
+
+        /* 作曲家グリッド */
+        .composer-grid {
+            max-width: 1000px;
+            margin: auto;
+            padding: 20px;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 20px;
+        }
+
+        .card {
+            background: #ffffff;
+            border-radius: 20px;
+            padding: 20px;
+            text-align: center;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.08);
+            cursor: pointer;
+            transition: transform 0.2s ease;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+        }
+
+        .card h3 {
+            margin-bottom: 6px;
+            font-size: 1.2rem;
+        }
+
+        .era-tag {
+            display: inline-block;
+            background: #A4C3B2;
+            color: white;
+            padding: 3px 10px;
+            border-radius: 12px;
+            font-size: 0.75rem;
+        }
+
+    </style>
+</head>
+<body>
+
+<header>
+    <h1>作曲家一覧</h1>
+    <p>フルート作品に関係する作曲家を検索できます</p>
+</header>
+
+<div class="controls">
+    <input id="searchBox" type="text" placeholder="作曲家名・作品名で検索">
+    <select id="eraFilter">
+        <option value="">すべての時代</option>
+        <option value="Baroque">バロック</option>
+        <option value="Classical">古典派</option>
+        <option value="Romantic">ロマン派</option>
+        <option value="Modern">近代／フランス近代</option>
+        <option value="Contemporary">現代</option>
+    </select>
+    <select id="sortSelect">
+        <option value="kana">五十音順</option>
+        <option value="name">A–Z</option>
+    </select>
+</div>
+
+<div class="composer-grid" id="composerGrid">
+    <!-- JSで自動挿入 -->
+</div>
+
+<script src="composer_list.js"></script>
+
+<script>
+    const grid = document.getElementById("composerGrid");
+
+    function renderList() {
+        const keyword = document.getElementById("searchBox").value.trim().toLowerCase();
+        const era = document.getElementById("eraFilter").value;
+        const sort = document.getElementById("sortSelect").value;
+
+        let list = [...composerList];
+
+        // フィルタ：時代
+        if (era) {
+            list = list.filter(c => c.era === era);
+        }
+
+        // フィルタ：検索（名前・作品）
+        if (keyword) {
+            list = list.filter(c =>
+                c.name.toLowerCase().includes(keyword) ||
+                c.kana.includes(keyword) ||
+                c.works.some(w => w.toLowerCase().includes(keyword))
+            );
+        }
+
+        // ソート
+        if (sort === "kana") {
+            list.sort((a, b) => a.kana.localeCompare(b.kana, "ja"));
+        } else if (sort === "name") {
+            list.sort((a, b) => a.name.localeCompare(b.name));
+        }
+
+        // 描画
+        grid.innerHTML = "";
+        list.forEach(c => {
+            const card = document.createElement("div");
+            card.className = "card";
+            card.innerHTML = `
+                <h3>${c.name}</h3>
+                <p>${c.kana}</p>
+                <span class="era-tag">${c.era}</span>
+            `;
+            card.onclick = () => location.href = c.url;
+
+            grid.appendChild(card);
+        });
+    }
+
+    document.getElementById("searchBox").oninput = renderList;
+    document.getElementById("eraFilter").onchange = renderList;
+    document.getElementById("sortSelect").onchange = renderList;
+
+    // 初期表示
+    renderList();
+</script>
+
+</body>
+</html>
