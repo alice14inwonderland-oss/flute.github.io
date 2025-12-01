@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>作曲家一覧 | Flute Library</title>
+  <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;600&display=swap" rel="stylesheet">
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Quicksand', sans-serif;
+      background: #F2F4F3;
+      color: #4A4A4A;
+    }
+    header {
+      text-align: center;
+      padding: 40px 20px;
+    }
+    h1 {
+      font-size: 2rem;
+      margin-bottom: 10px;
+    }
+    .controls {
+      max-width: 900px;
+      margin: auto;
+      display: flex;
+      gap: 10px;
+      padding: 20px;
+      flex-wrap: wrap;
+    }
+    select, input {
+      padding: 10px;
+      border-radius: 8px;
+      border: 1px solid #ccc;
+      flex: 1;
+    }
+    .list {
+      max-width: 900px;
+      margin: auto;
+      background: #fff;
+      padding: 20px;
+      border-radius: 20px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.08);
+    }
+    .composer-item {
+      padding: 10px 5px;
+      border-bottom: 1px solid #eee;
+      cursor: pointer;
+    }
+    .composer-item:hover {
+      background: #f5faf8;
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <h1>作曲家一覧</h1>
+  <p>フルート作品に関係する作曲家</p>
+</header>
+
+<div class="controls">
+  <select id="sortSelect">
+    <option value="ja">五十音順</option>
+    <option value="az">A-Z（ローマ字）</option>
+  </select>
+
+  <select id="eraFilter">
+    <option value="all">すべての時代</option>
+    <option value="baroque">バロック</option>
+    <option value="classical">古典派</option>
+    <option value="romantic">ロマン派</option>
+    <option value="french">フランス近代</option>
+    <option value="modern">20世紀</option>
+    <option value="contemporary">現代</option>
+  </select>
+
+  <input type="text" id="searchBox" placeholder="作曲家名で検索...">
+</div>
+
+<div class="list" id="composerList"></div>
+
+<script>
+// --- 作曲家データ（★あとで200名をここに入れる） ---
+const composers = [
+  { name: "J.S.バッハ", era: "baroque", link: "../composers/bach-js.html" },
+ // name: "C.Ph.E.バッハ", era: "baroque", link: "../composers/bach-cpe.html" },
+  { name: "ゲオルク・フィリップ・テレマン", era: "baroque", link: "../composers/telemann.html" },
+  { name: "アントニオ・ヴィヴァルディ", era: "baroque", link: "../composers/vivaldi.html" },
+ //{name: "ドップラー", era: "romantic", link: "../composers/doppler.html" },
+ //{name: "ライネッケ", era: "romantic", link: "../composers/reinecke.html" },
+//{name: "ドビュッシー", era: "french", link: "../composers/debussy.html" },
+//{name: "ラヴェル", era: "french", link: "../composers/ravel.html" },
+ //{nam "イベール", era: "modern", link: "../composers/iber.html" },
+  
+];
+
+const listEl = document.getElementById("composerList");
+const searchBox = document.getElementById("searchBox");
+const sortSelect = document.getElementById("sortSelect");
+const eraFilter = document.getElementById("eraFilter");
+
+// 五十音ソート用の簡易カタカナ変換
+function toKana(str) {
+  return str.replace(/[^ぁ-んァ-ン]/g, "");
+}
+
+function renderList() {
+  const keyword = searchBox.value.trim();
+  const sortType = sortSelect.value;
+  const era = eraFilter.value;
+
+  let filtered = composers.filter(c =>
+    (era === "all" || c.era === era) &&
+    c.name.includes(keyword)
+  );
+
+  // ソート
+  filtered.sort((a, b) => {
+    if (sortType === "az") {
+      return a.name.localeCompare(b.name, 'en');
+    } else {
+      return toKana(a.name).localeCompare(toKana(b.name), 'ja');
+    }
+  });
+
+  // 出力
+  listEl.innerHTML = filtered.map(c => `
+    <div class="composer-item" onclick="location.href='${c.link}'">
+      ${c.name}
+    </div>
+  `).join("");
+}
+
+searchBox.addEventListener('input', renderList);
+sortSelect.addEventListener('change', renderList);
+eraFilter.addEventListener('change', renderList);
+
+renderList();
+</script>
+
+<script src="composer_list.js"></script>
+
+
+</body>
+</html>
