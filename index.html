@@ -1,3 +1,60 @@
+  <!-- Firebase SDK 読み込み -->
+<script src="https://www.gstatic.com/firebasejs/10.7.1/firebase-app.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore.js"></script>
+
+<script>
+  // ▼ あなたの Firebase 設定値
+  const firebaseConfig = {
+    apiKey: "AIzaSyCcae6xCiz-5DdW2h5Nqlqy15Lyz-joFS0", // ここにあなたのAPIキーを貼り付けてください
+    authDomain: "fluterepertoire-14c6f.firebaseapp.com",
+    projectId: "fluterepertoire-14c6f",
+    storageBucket: "fluterepertoire-14c6f.appspot.com",
+    messagingSenderId: "201536501280", // ここにあなたのSender IDを貼り付けてください
+    appId: "1:201536501280:web:6df67123b831f7f2022e45" // ここにあなたのApp IDを貼り付けてください
+
+
+ //どっちが正解？ storageBucket: "fluterepertoire-14c6f.firebasestorage.app", --> 
+
+
+    
+  };
+
+  // Firebase 初期化
+  const app = firebase.initializeApp(firebaseConfig);
+  const db = firebase.firestore();
+
+  // カウンター処理
+  const counterRef = db.collection("counters").doc("pageView");
+
+  // ページアクセス時にカウント +1
+  db.runTransaction(async (transaction) => {
+    const doc = await transaction.get(counterRef);
+
+    if (!doc.exists) {
+      transaction.set(counterRef, { count: 1 });
+      return 1;
+    }
+
+    const newCount = doc.data().count + 1;
+    transaction.update(counterRef, { count: newCount });
+    return newCount;
+  })
+  .then((newCount) => {
+    document.getElementById("access-counter").innerText =
+      `累計アクセス数：${newCount} 回`;
+  })
+  .catch((error) => {
+    console.error("カウンター更新エラー:", error);
+    document.getElementById("access-counter").innerText =
+      "アクセス数の取得に失敗しました。";
+  });
+</script>
+<!-- Firebase SDK 読み込み終了 -->
+
+
+
+
+
 <!-- Google tag (gtag.js) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-RSDJD0XCZ6"></script>
 <script>
@@ -141,6 +198,7 @@
     </div>
 
 </html>
+
 
 
 
