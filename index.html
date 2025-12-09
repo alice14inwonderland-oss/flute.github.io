@@ -68,14 +68,62 @@
     </a>
 </div>
 
-  
+  <div id="access-counter"
+     style="text-align:center; margin:20px 0; font-size:18px; font-weight:bold;">
+  読み込み中…
+</div>
+
+<script type="module">
+  import { initializeApp } from "https://www.gstatic.com/firebasejs/12.6.0/firebase-app.js";
+  import { getFirestore, doc, runTransaction } from "https://www.gstatic.com/firebasejs/12.6.0/firebase-firestore.js";
+
+  // Firebase 設定
+  const firebaseConfig = {
+    apiKey: "AIzaSyCcae6xCiz-5DdW2h5Nqlqy15Lyz-joFS0",
+    authDomain: "fluterepertoire-14c6f.firebaseapp.com",
+    projectId: "fluterepertoire-14c6f",
+    storageBucket: "fluterepertoire-14c6f.firebasestorage.app",
+    messagingSenderId: "201536501280",
+    appId: "1:201536501280:web:6df67123b831f7f2022e45"
+  };
+
+  // 初期化
+  const app = initializeApp(firebaseConfig);
+  const db = getFirestore(app);
+
+  // カウンターの参照
+  const counterRef = doc(db, "counters", "pageView");
+
+  // Firestore トランザクションで +1
+  runTransaction(db, async (transaction) => {
+    const docSnap = await transaction.get(counterRef);
+
+    if (!docSnap.exists()) {
+      transaction.set(counterRef, { count: 1 });
+      return 1;
+    }
+
+    const newCount = docSnap.data().count + 1;
+    transaction.update(counterRef, { count: newCount });
+    return newCount;
+  })
+  .then((newCount) => {
+    document.getElementById("access-counter").innerText =
+      `累計アクセス数：${newCount} 回`;
+  })
+  .catch((err) => {
+    console.error(err);
+    document.getElementById("access-counter").innerText =
+      "アクセス数の取得に失敗しました";
+  });
+</script>
+
 
     <footer>
         <p>&copy; 2025 Flute Library</p>
 
    　　　　　   <div id="access-counter" style="text-align:center; margin:20px 0; font-size:18px; font-weight:bold;">
-
-　　　　　　
+　
 　　　　</div>
 
     </footer>
@@ -86,6 +134,7 @@
     </div>
 
 </html>
+
 
 
 
