@@ -191,6 +191,16 @@ font-size: 0.9rem;
     color: #222;
 }
 
+/* --- 曲のリンク --- */
+.works-table a {
+    color: #333;
+    text-decoration: none;
+}
+
+.works-table a:hover {
+    text-decoration: underline;
+}
 /* --- ここまで追加 --- */
 
 /* ...existing code... */
+
