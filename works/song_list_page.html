@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>曲一覧 | Flute Library</title>
+  <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;600&display=swap" rel="stylesheet">
+
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Quicksand', sans-serif;
+      background: #F2F4F3;
+      color: #4A4A4A;
+    }
+    header {
+      text-align: center;
+      padding: 40px 20px;
+    }
+    h1 {
+      font-size: 2rem;
+      margin-bottom: 10px;
+    }
+    .controls {
+      max-width: 900px;
+      margin: auto;
+      display: flex;
+      gap: 10px;
+      padding: 20px;
+      flex-wrap: wrap;
+    }
+    select, input {
+      padding: 10px;
+      border-radius: 8px;
+      border: 1px solid #ccc;
+      flex: 1;
+    }
+    .list {
+      max-width: 900px;
+      margin: auto;
+      background: #fff;
+      padding: 20px;
+      border-radius: 20px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.08);
+    }
+    .song-item {
+      padding: 10px 5px;
+      border-bottom: 1px solid #eee;
+      cursor: pointer;
+    }
+    .song-item:hover {
+      background: #f5faf8;
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <h1>曲名一覧</h1>
+  <p>フルートのレパートリー曲</noframes></p>
+</header>
+
+<div class="controls">
+  <select id="sortSelect">
+    <option value="ja">五十音順</option>
+    <option value="az">A-Z（ローマ字）</option>
+  </select>
+
+  <select id="eraFilter">
+    <option value="all">すべての時代</option>
+    <option value="baroque">バロック</option>
+    <option value="classical">古典派</option>
+    <option value="romantic">ロマン派</option>
+    <option value="french">フランス近代</option>
+    <option value="modern">20世紀</option>
+    <option value="contemporary">現代</option>
+  </select>
+
+  <input type="text" id="searchBox" placeholder="曲名で検索...">
+</div>
+
+<div class="list" id="songList"></div>
+
+
+<script>
+// =====================
+//   曲データベース
+//   ★ ここは外部JSに分けることも可能！
+// =====================
+const songs = [
+  {
+    title: "ハンガリー田園幻想曲 Op.26",
+    composer: "フランツ・ドップラー",
+    era: "romantic",
+    link: "../works/doppler_hungarian_fantasy_page.html"
+  },
+  {
+    title: "アンダンテとロンド Op.25",
+    composer: "フランツ・ドップラー",
+    era: "romantic",
+    link: "#"
+  },
+  {
+    title: "シランクス",
+    composer: "ドビュッシー",
+    era: "french",
+    link: "#"
+  },
+  {
+    title: "フルートソナタ",
+    composer: "ヒンデミット",
+    era: "modern",
+    link: "#"
+  },
+  // --- 新しい曲はここに追加するだけでOK！ ---
+];
+
+const listEl = document.getElementById("songList");
+const searchBox = document.getElementById("searchBox");
+const sortSelect = document.getElementById("sortSelect");
+const eraFilter = document.getElementById("eraFilter");
+
+// 五十音順ソート用カタカナ抽出
+function toKana(str) {
+  return str.replace(/[^ぁ-んァ-ン]/g, "");
+}
+
+function renderList() {
+  const keyword = searchBox.value.trim();
+  const era = eraFilter.value;
+  const sortType = sortSelect.value;
+
+  let filtered = songs.filter(song =>
+    (era === "all" || song.era === era) &&
+    song.title.includes(keyword)
+  );
+
+  // ソート
+  filtered.sort((a, b) => {
+    if (sortType === "az") {
+      return a.title.localeCompare(b.title, 'en');
+    } else {
+      return toKana(a.title).localeCompare(toKana(b.title), 'ja');
+    }
+  });
+
+  // 出力
+  listEl.innerHTML = filtered.map(song => `
+    <div class="song-item" onclick="location.href='${song.link}'">
+      <strong>${song.title}</strong><br>
+      <span style="font-size:0.9rem; color:#777;">${song.composer}</span>
+    </div>
+  `).join("");
+}
+
+searchBox.addEventListener('input', renderList);
+sortSelect.addEventListener('change', renderList);
+eraFilter.addEventListener('change', renderList);
+
+renderList();
+</script>
+
+<!-- 外部データにもできる -->
+<!-- <script src="song_list.js"></script> -->
+
+</body>
+</html>
+
