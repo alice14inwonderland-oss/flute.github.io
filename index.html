@@ -37,7 +37,10 @@
         <h1>Flute Library</h1>
         -->
         <p class="subtitle">フルート作品・作曲家の辞書サイト   開発中・・</p>
-     
+      <div class="counter-minimal access-counter-fixed" role="status" aria-live="polite" aria-label="アクセス数">
+        <span>アクセス数：</span>
+        <span id="access-counter">読み込み中…</span>
+      </div>
     </header>
 
     <section class="search-box-section">
@@ -151,10 +154,7 @@ function showSuggestions(value) {
     </a>
 </div>
 
-  <div class="counter-minimal">
-  <span>アクセス数：</span>
-  <span id="access-counter">読み込み中…</span>
-  </div>
+
 
 </div>
 
@@ -193,8 +193,9 @@ function showSuggestions(value) {
     return newCount;
   })
   .then((newCount) => {
+    const formatted = String(newCount).padStart(6, '0'); // 6桁で0パディング
     document.getElementById("access-counter").innerText =
-      `${newCount} 回`;
+      `${formatted} 回`;
   })
   .catch((err) => {
     console.error(err);
