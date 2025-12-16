@@ -1,0 +1,215 @@
+ <!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Flute Library</title>
+    <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;600&display=swap" rel="stylesheet">
+
+    <!-- 外部CSS を読み込む -->
+    <link rel="stylesheet" href="style.css">
+
+    <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-RSDJD0XCZ6"></script>
+
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-RSDJD0XCZ6');
+
+</script>
+
+
+</head>
+
+
+
+  <div style="text-align: center; margin: 1em 0;"></div>
+
+  <body>
+  
+  
+    <header>
+      <img src="Flute.png" alt="Flute icon" class="flute-icon">
+      <!-- 
+        <h1>Flute Library</h1>
+        -->
+        <p class="subtitle">フルート作品・作曲家の辞書サイト   開発中・・</p>
+     
+    </header>
+
+    <section class="search-box-section">
+      <h3 class="section-title">曲名からすぐに探す↓↓</h3>
+
+     <div class="autocomplete-wrapper">
+        <input 
+            type="text" 
+            id="song-search" 
+            placeholder="曲名を入力…" 
+            oninput="showSuggestions(this.value)"
+            autocomplete="off"
+        >
+        <div id="suggestions" class="suggestions-box"></div>
+     </div>
+    </section>
+
+
+    <!-- 旧検索セクション
+   <section class="search-section">
+    <a href="composers/composer_list_page.html" class="card">
+
+       
+            <div class="icon-circle">🎼</div>
+            <h3>作曲家から探す</h3>
+      　
+      </a>
+-->
+ <section class="search-section">
+
+  <a href="composers/composer_list_page.html" class="card">
+    <img src="composer.png" alt="作曲家カード" class="composer-card-image">
+  </a>
+ 
+  <a href="works/song_list_page.html" class="card">
+   <img src="music.png" alt="曲カード" class="composer-card-image">
+  </a>
+ <!-- 旧検索セクション
+       <a href="works/song_list_page.html" class="card">
+            <div class="icon-circle c-green">📅</div>
+            <h3>曲名から探す</h3>
+
+            </a>
+-->
+<a>
+        <div class="card">
+            <div class="icon-circle c-yellow">🎵</div>
+            <h3>ジャンルから探す</h3>
+        </div>
+  </a>
+</section> 
+
+    <script>
+// 検索用データベース（追加OK）
+const songDatabase = [
+    { title: "ハンガリー田園幻想曲", url: "works/doppler_hungarian_fantasy_page.html" },
+    { title: "Hungarian Pastoral Fantasy", url: "works/doppler_hungarian_fantasy_page.html" },
+    { title: "アンダンテとロンド Op.25", url: "#" },
+    { title: "Andante and Rondo Op.25", url: "#" },
+    { title: "ファンタジー『リゴレット』 Op.38", url: "#" },
+    { title: "Fantasie on 'Rigoletto' Op.38", url: "#" }
+];
+
+
+function showSuggestions(value) {
+    const suggestionBox = document.getElementById("suggestions");
+    suggestionBox.innerHTML = "";
+
+    if (!value) return;
+
+    // 部分一致で候補を抽出
+    const filtered = songDatabase.filter(song =>
+        song.title.toLowerCase().includes(value.toLowerCase())
+    );
+
+    // 結果なし
+    if (filtered.length === 0) {
+        suggestionBox.innerHTML = "<div class='suggestion-item'>該当なし</div>";
+        return;
+    }
+
+    // 候補を並べる
+    filtered.forEach(song => {
+        const item = document.createElement("div");
+        item.className = "suggestion-item";
+        item.textContent = song.title;
+        item.onclick = () => {
+            document.getElementById("song-search").value = song.title;
+            suggestionBox.innerHTML = "";
+            window.location.href = song.url;  // ページに飛ぶ
+        };
+        suggestionBox.appendChild(item);
+    });
+}
+</script>
+
+
+ <div style="text-align: center; margin: 1em 0;"></div>   
+
+ <div class="rakuten-widget">
+        <script type="text/javascript">rakuten_design="slide";rakuten_affiliateId="414208db.3c37a203.414208dc.71fca46e";rakuten_items="ctsmatch";rakuten_genreId="0";rakuten_size="468x160";rakuten_target="_blank";rakuten_theme="gray";rakuten_border="on";rakuten_auto_mode="on";rakuten_genre_title="off";rakuten_recommend="on";rakuten_ts="1764120955394";</script>
+        <script type="text/javascript" src="https://xml.affiliate.rakuten.co.jp/widget/js/rakuten_widget.js?20230106"></script>
+ </div>
+
+
+
+
+<div style="text-align: center; margin: 1em 0;">
+    <a href="https://amzn.to/3Kjo1Cq" target="_blank" rel="noopener noreferrer">
+        <img src="https://m.media-amazon.com/images/I/81rU5ZPqbpL._AC_SX450_.jpg" alt="Amazonで検索" style="max-width: 100%; height: auto; border-radius: 8px;">
+    </a>
+</div>
+
+  <div class="counter-minimal">
+  <span>アクセス数：</span>
+  <span id="access-counter">読み込み中…</span>
+  </div>
+
+</div>
+
+<script type="module">
+  import { initializeApp } from "https://www.gstatic.com/firebasejs/12.6.0/firebase-app.js";
+  import { getFirestore, doc, runTransaction } from "https://www.gstatic.com/firebasejs/12.6.0/firebase-firestore.js";
+
+  // Firebase 設定
+  const firebaseConfig = {
+    apiKey: "AIzaSyCcae6xCiz-5DdW2h5Nqlqy15Lyz-joFS0",
+    authDomain: "fluterepertoire-14c6f.firebaseapp.com",
+    projectId: "fluterepertoire-14c6f",
+    storageBucket: "fluterepertoire-14c6f.appspot.com",
+    messagingSenderId: "201536501280",
+    appId: "1:201536501280:web:6df67123b831f7f2022e45"
+  };
+
+  // 初期化
+  const app = initializeApp(firebaseConfig);
+  const db = getFirestore(app);
+
+  // カウンターの参照
+  const counterRef = doc(db, "counters", "pageView");
+
+  // Firestore トランザクションで +1
+  runTransaction(db, async (transaction) => {
+    const docSnap = await transaction.get(counterRef);
+
+    if (!docSnap.exists()) {
+      transaction.set(counterRef, { count: 1 });
+      return 1;
+    }
+
+    const newCount = docSnap.data().count + 1;
+    transaction.update(counterRef, { count: newCount });
+    return newCount;
+  })
+  .then((newCount) => {
+    document.getElementById("access-counter").innerText =
+      `${newCount} 回`;
+  })
+  .catch((err) => {
+    console.error(err);
+    document.getElementById("access-counter").innerText =
+      "アクセス数の取得に失敗しました";
+  });
+
+</script>
+
+    <footer>
+        <p>&copy; 2025 Flute Library</p>
+    </footer>
+
+
+
+</body>
+
+</html>
