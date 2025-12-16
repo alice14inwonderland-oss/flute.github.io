@@ -8,6 +8,7 @@ body {
 header {
     text-align: center;
     padding: 5px 2px;
+    position: relative; /* カウンターを header 内で absolute 配置するため */
 }
 
 h1 {
@@ -189,6 +190,46 @@ font-size: 0.9rem;
     font-size: 20px;
     font-weight: 700;
     color: #222;
+}
+
+/* アクセスカウンター：header 内で配置しスクロールで消える挙動（absolute） */
+.access-counter-fixed {
+    position: absolute; /* header 内で相対配置 */
+    top: 10px;
+    right: 12px;
+    background: rgba(255,255,255,0.85); /* 少し透け感を出す */
+    padding: 6px 10px; /* 少しコンパクトに */
+    border-radius: 10px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.04); /* 影を控えめに */
+    border: 1px solid rgba(0,0,0,0.04); /* 軽い境界で上品に */
+    z-index: 2; /* header の上に表示 */
+    font-size: 0.85rem; /* 少し小さめ */
+    color: #6b6b6b; /* 濃すぎない落ち着いた色 */
+    font-weight: 500; /* 強すぎない太さ */
+    font-family: 'Quicksand', sans-serif;
+    display: inline-flex;
+    gap: 8px;
+    align-items: center;
+    opacity: 0.95;
+}
+
+@media (max-width: 480px) {
+  .access-counter-fixed {
+    top: 8px;
+    right: 8px;
+    padding: 5px 8px;
+    font-size: 0.8rem;
+  }
+}
+
+/* 数字をカウンターと同じフォント・色にして可読性を上げる */
+.access-counter-fixed #access-counter {
+    font-family: inherit;
+    color: inherit; /* 親と同じ色 */
+    font-weight: 700; /* 数字をやや強調 */
+    font-size: 1rem; /* 少し大きめに */
+    font-variant-numeric: tabular-nums; /* 等幅数字で安定した桁揃え */
+    letter-spacing: 0.02em;
 }
 
 /* --- 曲のリンク --- */
