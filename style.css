@@ -1,0 +1,339 @@
+body {
+    margin: 0;
+    font-family: 'Quicksand', sans-serif;
+    background: #F2F4F3;
+    color: #4A4A4A;
+}
+
+header {
+    text-align: center;
+    padding: 5px 2px;
+}
+
+h1 {
+    font-size: 2.4rem;
+    margin-bottom: 5px;
+}
+
+
+.subtitle {
+    font-size: 1.2rem;
+    color: #666;
+}
+
+.search-section {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 20px;
+    padding: 40px 20px;
+    max-width: 900px;
+    margin: auto;
+}
+
+
+
+.card {
+    background: white;
+    padding: 25px;
+    border-radius: 20px;
+    text-align: center;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.08);
+    cursor: pointer;
+    transition: transform 0.2s ease;
+    text-decoration: none;
+    color: inherit;
+    display: block;
+    transform: translateY(-10px); /* 常に少し上に移動（調整可） */
+}
+
+
+.card:hover {
+    transform: translateY(-12px); /* ホバー時はさらに上へ */
+}
+
+
+.icon-circle {
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+    margin: auto;
+    margin-bottom: 15px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 2rem;
+    background: #E8AEB7;
+    color: white;
+}
+
+.c-green { background: #A4C3B2; }
+.c-yellow { background: #F7D488; }
+
+
+        .years {
+            color: #777;
+            margin-bottom: 20px;
+        }
+        .container {
+            max-width: 900px;
+            margin: auto;
+            padding: 20px;
+        }
+        .profile-box {
+            background: #ffffff;
+            padding: 25px;
+            border-radius: 20px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.08);
+            margin-bottom: 30px;
+        }
+        h2 {
+            margin-top: 0;
+            margin-bottom: 15px;
+        }
+        .works-list li {
+            margin-bottom: 8px;
+        }
+        .tag {
+            display: inline-block;
+            background: #A4C3B2;
+            color: white;
+            padding: 4px 10px;
+            border-radius: 12px;
+            font-size: 0.8rem;
+            margin-right: 6px;
+        }
+        .back-link {
+            text-align: center;
+            margin-top: 30px;
+            font-size: 1rem;
+        }
+  .composer-grid {
+max-width: 1000px;
+margin: auto;
+padding: 40px 20px;
+display: grid;
+grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+gap: 25px;
+}
+.composer-card {
+background: white;
+padding: 20px;
+border-radius: 18px;
+text-align: center;
+box-shadow: 0 4px 10px rgba(0,0,0,0.08);
+transition: transform 0.2s ease;
+text-decoration: none;
+color: inherit;
+display: block;
+}
+.composer-card:hover {
+transform: translateY(-5px);
+}
+.composer-img {
+width: 100px;
+height: 100px;
+border-radius: 50%;
+object-fit: cover;
+margin-bottom: 15px;
+box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
+.composer-name {
+font-size: 1.2rem;
+font-weight: 600;
+margin-bottom: 5px;
+}
+.years {
+color: #777;
+font-size: 0.9rem;
+}
+
+.rakuten-widget {
+    max-width: 468px;      /* ウィジェット幅に合わせる */
+    margin: -10px auto 20px; /* 横中央、上を少し上げる（負のマージン） */
+    text-align: center;
+}
+.rakuten-widget iframe {
+    display: block;
+    margin: 0 auto;
+}
+
+
+
+/* --- ここから追加 --- */
+.image-block {
+  text-align: center;
+}
+
+.image-block img {
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.credit {
+  font-size: 0.8rem;
+  color: #666;
+  margin-top: 5px;
+}
+
+.counter-minimal {
+    margin: 25px auto;
+    text-align: center;
+    font-family: 'Quicksand', sans-serif;
+    font-size: 16px;
+    color: #444;
+}
+
+.counter-minimal span:last-child {
+    font-size: 20px;
+    font-weight: 700;
+    color: #222;
+}
+
+/* --- 曲のリンク --- */
+.works-table a {
+    color: #333;
+    text-decoration: none;
+}
+
+.works-table a:hover {
+    text-decoration: underline;
+}
+
+
+
+/* --- 曲名から探す --- */
+.search-box-section {
+    
+    margin-top: 0.4em;
+    text-align: center;
+}
+
+/* 見出し（曲名から探す）をボックス幅に合わせ左寄せ */
+.section-title {
+    max-width: 320px; /* .autocomplete-wrapper と同じ幅 */
+    margin: 0.15em auto 0.25em; /* 上下の間を詰める */
+    text-align: left;
+    font-family: 'M PLUS Rounded 1c', 'Quicksand', sans-serif; /* 丸めの可愛いフォント */
+    font-weight: 700;
+    font-size: 1.1rem;
+    letter-spacing: 0.02em;
+    color: #2F5F4E; /* 濃めで見やすい色に変更 */
+    display: inline-block;
+    padding: 6px 10px; /* ラベル風の余白 */
+    border-radius: 8px;
+    background: rgba(47,95,78,0.12); /* コントラストを強める薄い背景 */
+    border: 1px solid rgba(47,95,78,0.12);
+}
+
+
+.search-box-wrapper {
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+    margin-top: 10px;
+     max-width: 320px;   /* ★ 小さくしたポイント！ */
+      margin: 0.5em auto;
+}
+
+.search-box-wrapper input {
+    width: 70%;
+    padding: 10px 15px;
+    border: 2px solid #A4C3B2;
+    border-radius: 8px;
+    font-size: 1rem;
+    font-family: 'Quicksand', sans-serif;
+}
+
+.search-box-wrapper button {
+    padding: 10px 20px;
+    background: #A4C3B2;
+    border: none;
+    border-radius: 8px;
+    font-size: 1rem;
+    font-weight: bold;
+    color: #fff;
+    cursor: pointer;
+}
+
+.search-box-wrapper button:hover {
+    opacity: 0.9;
+}
+
+.search-result {
+    margin-top: 15px;
+    font-size: 1rem;
+}
+
+.autocomplete-wrapper {
+    position: relative; /* 候補ボックスの基準にするため relative に */
+    width: 100%;
+    max-width: 320px;  /* 横幅を小さく調整（好みに応じて変更） */
+    margin: 0.25em auto; /* 上の余白を小さくして見出しに近づける */
+    text-align: center;
+}
+
+.autocomplete-wrapper input {
+    width: 100%;
+    padding: 8px 12px;
+    border: 2px solid #A4C3B2;
+    border-radius: 8px;
+    font-size: 0.95rem;
+    font-family: 'Quicksand', sans-serif;
+}
+
+.suggestions-box {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    background: white;
+    border: none; /* 線を消す */
+    border-radius: 0 0 8px 8px;
+    max-height: 200px;
+    overflow-y: auto;
+    box-shadow: none; /* 影も消す */
+    z-index: 10;
+}
+
+.suggestion-item {
+    padding: 10px 15px;
+    cursor: pointer;
+}
+
+.suggestion-item:hover {
+    background: #EAF4F1;
+}
+
+
+.card {
+    display: inline-block;
+    border-radius: 12px;
+    overflow: hidden;
+    text-decoration: none;
+}
+
+.composer-card-image {
+    width: 100%;
+    max-width: 350px;  /* カードサイズ調整 */
+    display: block;
+    border-radius: 12px;
+    transition: transform 0.2s ease;
+    cursor: pointer;
+}
+
+.card:hover .composer-card-image {
+    transform: scale(1.03); /* ホバー時のふわっと拡大 */
+}
+
+.Flute-icon {
+    width: 80px;
+    height: 80px;
+    margin-bottom: 10px;
+  text-align: center;
+}
+
+
+/* --- ここまで追加 --- */
+/* ...existing code... */
