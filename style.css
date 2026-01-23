@@ -3,6 +3,11 @@ body {
     font-family: 'Quicksand', sans-serif;
     background: #F2F4F3;
     color: #4A4A4A;
+    box-sizing: border-box;
+}
+
+* {
+    box-sizing: border-box;
 }
 
 header {
@@ -16,10 +21,28 @@ h1 {
     margin-bottom: 5px;
 }
 
+@media (max-width: 768px) {
+    h1 {
+        font-size: 2rem;
+    }
+}
+
+@media (max-width: 480px) {
+    h1 {
+        font-size: 1.6rem;
+    }
+}
+
 
 .subtitle {
     font-size: 1.2rem;
     color: #666;
+}
+
+@media (max-width: 480px) {
+    .subtitle {
+        font-size: 1rem;
+    }
 }
 
 .search-section {
@@ -29,6 +52,22 @@ h1 {
     padding: 40px 20px;
     max-width: 900px;
     margin: auto;
+}
+
+@media (max-width: 768px) {
+    .search-section {
+        grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+        gap: 15px;
+        padding: 30px 15px;
+    }
+}
+
+@media (max-width: 480px) {
+    .search-section {
+        grid-template-columns: 1fr;
+        gap: 12px;
+        padding: 20px 10px;
+    }
 }
 
 
@@ -47,9 +86,35 @@ h1 {
     transform: translateY(-10px); /* 常に少し上に移動（調整可） */
 }
 
+@media (max-width: 768px) {
+    .card {
+        padding: 20px;
+        transform: translateY(-8px);
+    }
+}
+
+@media (max-width: 480px) {
+    .card {
+        padding: 15px;
+        transform: translateY(-5px);
+    }
+}
+
 
 .card:hover {
     transform: translateY(-12px); /* ホバー時はさらに上へ */
+}
+
+@media (max-width: 768px) {
+    .card:hover {
+        transform: translateY(-10px);
+    }
+}
+
+@media (max-width: 480px) {
+    .card:hover {
+        transform: translateY(-7px);
+    }
 }
 
 
@@ -67,6 +132,15 @@ h1 {
     color: white;
 }
 
+@media (max-width: 480px) {
+    .icon-circle {
+        width: 60px;
+        height: 60px;
+        font-size: 1.6rem;
+        margin-bottom: 10px;
+    }
+}
+
 .c-green { background: #A4C3B2; }
 .c-yellow { background: #F7D488; }
 
@@ -80,6 +154,19 @@ h1 {
             margin: auto;
             padding: 20px;
         }
+
+        @media (max-width: 768px) {
+            .container {
+                padding: 15px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .container {
+                padding: 12px;
+            }
+        }
+
         .profile-box {
             background: #ffffff;
             padding: 25px;
@@ -87,10 +174,34 @@ h1 {
             box-shadow: 0 4px 10px rgba(0,0,0,0.08);
             margin-bottom: 30px;
         }
+
+        @media (max-width: 768px) {
+            .profile-box {
+                padding: 20px;
+                margin-bottom: 20px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .profile-box {
+                padding: 15px;
+                margin-bottom: 15px;
+                border-radius: 15px;
+            }
+        }
+
         h2 {
             margin-top: 0;
             margin-bottom: 15px;
         }
+
+        @media (max-width: 480px) {
+            h2 {
+                font-size: 1.3rem;
+                margin-bottom: 12px;
+            }
+        }
+
         .works-list li {
             margin-bottom: 8px;
         }
@@ -116,6 +227,22 @@ display: grid;
 grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
 gap: 25px;
 }
+
+@media (max-width: 768px) {
+    .composer-grid {
+        padding: 30px 15px;
+        grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+        gap: 20px;
+    }
+}
+
+@media (max-width: 480px) {
+    .composer-grid {
+        padding: 20px 10px;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 15px;
+    }
+}
 .composer-card {
 background: white;
 padding: 20px;
@@ -127,9 +254,18 @@ text-decoration: none;
 color: inherit;
 display: block;
 }
+
+@media (max-width: 480px) {
+    .composer-card {
+        padding: 15px;
+        border-radius: 15px;
+    }
+}
+
 .composer-card:hover {
 transform: translateY(-5px);
 }
+
 .composer-img {
 width: 100px;
 height: 100px;
@@ -138,24 +274,108 @@ object-fit: cover;
 margin-bottom: 15px;
 box-shadow: 0 4px 10px rgba(0,0,0,0.1);
 }
+
+@media (max-width: 480px) {
+    .composer-img {
+        width: 80px;
+        height: 80px;
+        margin-bottom: 10px;
+    }
+}
+
 .composer-name {
 font-size: 1.2rem;
 font-weight: 600;
 margin-bottom: 5px;
 }
+
+@media (max-width: 480px) {
+    .composer-name {
+        font-size: 1rem;
+    }
+}
+
 .years {
 color: #777;
 font-size: 0.9rem;
+}
+
+@media (max-width: 480px) {
+    .years {
+        font-size: 0.85rem;
+    }
 }
 
 .rakuten-widget {
     max-width: 468px;      /* ウィジェット幅に合わせる */
     margin: -10px auto 20px; /* 横中央、上を少し上げる（負のマージン） */
     text-align: center;
+    padding: 0 10px;
 }
+
+@media (max-width: 480px) {
+    .rakuten-widget {
+        max-width: 100%;
+        margin: -10px auto 15px;
+    }
+}
+
 .rakuten-widget iframe {
     display: block;
     margin: 0 auto;
+    max-width: 100%;
+}
+
+/* --- ここから追加 --- */
+.image-block {
+  text-align: center;
+}
+
+.image-block img {
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+@media (max-width: 768px) {
+    .image-block img {
+        width: 160px;
+        height: 160px;
+    }
+}
+
+@media (max-width: 480px) {
+    .image-block img {
+        width: 140px;
+        height: 140px;
+    }
+}
+
+.credit {
+  font-size: 0.8rem;
+  color: #666;
+  margin-top: 5px;
+}
+
+@media (max-width: 480px) {
+    .credit {
+        font-size: 0.75rem;
+    }
+}
+
+.counter-minimal {
+    margin: 25px auto;
+    text-align: center;
+    font-family: 'Quicksand', sans-serif;
+    font-size: 16px;
+    color: #444;
+}
+
+.counter-minimal span:last-child {
+    font-size: 20px;
+    font-weight: 700;
+    color: #222;
 }
 
 
@@ -268,6 +488,14 @@ font-size: 0.9rem;
     border: 1px solid rgba(47,95,78,0.12);
 }
 
+@media (max-width: 480px) {
+    .section-title {
+        max-width: 90%;
+        font-size: 1rem;
+        margin: 0.1em auto 0.2em;
+    }
+}
+
 
 .search-box-wrapper {
     display: flex;
@@ -315,6 +543,13 @@ font-size: 0.9rem;
     text-align: center;
 }
 
+@media (max-width: 480px) {
+    .autocomplete-wrapper {
+        max-width: 90%;
+        margin: 0.15em auto;
+    }
+}
+
 .autocomplete-wrapper input {
     width: 100%;
     padding: 8px 12px;
@@ -322,6 +557,13 @@ font-size: 0.9rem;
     border-radius: 8px;
     font-size: 0.95rem;
     font-family: 'Quicksand', sans-serif;
+}
+
+@media (max-width: 480px) {
+    .autocomplete-wrapper input {
+        padding: 10px;
+        font-size: 1rem;
+    }
 }
 
 .suggestions-box {
@@ -336,6 +578,13 @@ font-size: 0.9rem;
     overflow-y: auto;
     box-shadow: none; /* 影も消す */
     z-index: 10;
+}
+
+@media (max-width: 480px) {
+    .suggestions-box {
+        max-height: 250px;
+        border-radius: 0 0 8px 8px;
+    }
 }
 
 .suggestion-item {
@@ -364,6 +613,13 @@ font-size: 0.9rem;
     cursor: pointer;
 }
 
+@media (max-width: 480px) {
+    .composer-card-image {
+        max-width: 100%;
+        border-radius: 10px;
+    }
+}
+
 .card:hover .composer-card-image {
     transform: scale(1.03); /* ホバー時のふわっと拡大 */
 }
@@ -373,6 +629,13 @@ font-size: 0.9rem;
     height: 80px;
     margin-bottom: 10px;
   text-align: center;
+}
+
+@media (max-width: 480px) {
+    .Flute-icon {
+        width: 60px;
+        height: 60px;
+    }
 }
 
 
