@@ -12,8 +12,8 @@ body {
 
 header {
     text-align: center;
-    padding: 5px 2px;
-    position: relative; /* カウンターを header 内で absolute 配置するため */
+    padding: 50px 2px 5px 2px;
+    position: relative; /* アクセスカウンターを absolute 配置するための基準 */
 }
 
 h1 {
@@ -412,20 +412,20 @@ font-size: 0.9rem;
     color: #222;
 }
 
-/* アクセスカウンター：画面右上に常に固定 */
+/* アクセスカウンター：header 内で右上に配置 */
 .access-counter-fixed {
-    position: fixed; /* 画面に固定 */
-    top: 10px;
+    position: absolute; /* header 内で相対配置 */
+    top: 5px;
     right: 12px;
     background: rgba(255,255,255,0.92); /* 少し透け感を出す */
-    padding: 8px 12px; /* 少しコンパクトに */
+    padding: 8px 12px; /* コンパクト */
     border-radius: 10px;
-    box-shadow: 0 2px 8px rgba(0,0,0,0.1); /* 影を控えめに */
-    border: 1px solid rgba(0,0,0,0.08); /* 軽い境界で上品に */
-    z-index: 999; /* 最前面に表示 */
-    font-size: 0.85rem; /* 少し小さめ */
-    color: #6b6b6b; /* 濃すぎない落ち着いた色 */
-    font-weight: 500; /* 強すぎない太さ */
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1); /* 影 */
+    border: 1px solid rgba(0,0,0,0.08); /* 軽い境界 */
+    z-index: 10; /* header の上に表示 */
+    font-size: 0.85rem; /* 小さめ */
+    color: #6b6b6b; /* 落ち着いた色 */
+    font-weight: 500;
     font-family: 'Quicksand', sans-serif;
     display: inline-flex;
     gap: 8px;
@@ -434,9 +434,15 @@ font-size: 0.9rem;
 }
 
 @media (max-width: 480px) {
+    header {
+        padding: 45px 2px 5px 2px;
+    }
+}
+
+@media (max-width: 480px) {
   .access-counter-fixed {
-    top: 5px;
-    right: 5px;
+    top: 3px;
+    right: 8px;
     padding: 6px 8px;
     font-size: 0.75rem;
     gap: 4px;
