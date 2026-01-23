@@ -12,7 +12,7 @@ body {
 
 header {
     text-align: center;
-    padding: 50px 2px 5px 2px;
+    padding: 60px 2px 5px 2px;
     position: relative; /* アクセスカウンターを absolute 配置するための基準 */
 }
 
@@ -412,17 +412,17 @@ font-size: 0.9rem;
     color: #222;
 }
 
-/* アクセスカウンター：header 内で右上に配置 */
+/* アクセスカウンター：画面右上に常に固定 */
 .access-counter-fixed {
-    position: absolute; /* header 内で相対配置 */
-    top: 5px;
+    position: fixed; /* 画面に固定 */
+    top: 10px;
     right: 12px;
-    background: rgba(255,255,255,0.92); /* 少し透け感を出す */
+    background: rgba(255,255,255,0.94); /* 少し透け感を出す */
     padding: 8px 12px; /* コンパクト */
     border-radius: 10px;
     box-shadow: 0 2px 8px rgba(0,0,0,0.1); /* 影 */
     border: 1px solid rgba(0,0,0,0.08); /* 軽い境界 */
-    z-index: 10; /* header の上に表示 */
+    z-index: 999; /* 最前面に表示 */
     font-size: 0.85rem; /* 小さめ */
     color: #6b6b6b; /* 落ち着いた色 */
     font-weight: 500;
@@ -435,13 +435,13 @@ font-size: 0.9rem;
 
 @media (max-width: 480px) {
     header {
-        padding: 45px 2px 5px 2px;
+        padding: 55px 2px 5px 2px;
     }
 }
 
 @media (max-width: 480px) {
   .access-counter-fixed {
-    top: 3px;
+    top: 5px;
     right: 8px;
     padding: 6px 8px;
     font-size: 0.75rem;
