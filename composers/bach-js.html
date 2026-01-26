@@ -8,7 +8,7 @@
 <style>
 body { font-family: 'Quicksand', sans-serif; background:#F2F4F3; margin:0; padding:20px; }
 .container { max-width:900px; margin:auto; padding:30px; background:#fff;
-   border-radius:20px; box-shadow:0 4px 10px rgba(0,0,0,0.1);}
+   border-radius:20px; box-shadow:0 4px 10px rgba(0,0,0,0.1); }
 .header-area { display:flex; gap:25px; align-items:center; }
 .header-area img { width:160px; height:160px; border-radius:50%; object-fit:cover; }
 .section-title { font-size:1.4rem; margin-top:30px; border-left:6px solid #A4C3B2; padding-left:10px; }
@@ -16,13 +16,21 @@ body { font-family: 'Quicksand', sans-serif; background:#F2F4F3; margin:0; paddi
 .works-table td { padding:5px 0; border-bottom:1px solid #ddd; }
 .year { width:80px; font-weight:bold; }
 </style>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-SJJBPGTQ02"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-SJJBPGTQ02');
+</script>
 </head>
 
 <body>
 <div class="container">
 
 <div class="header-area">
-  <img src="../images/bach.jpg" alt="ヨハン・ゼバスティアン・バッハ">
+  <img src="../images/bach-js.jpg" alt="ヨハン・ゼバスティアン・バッハ">
   <div>
     <h1>ヨハン・ゼバスティアン・バッハ</h1>
     <p><strong>Johann Sebastian Bach</strong></p>
@@ -40,14 +48,11 @@ body { font-family: 'Quicksand', sans-serif; background:#F2F4F3; margin:0; paddi
 
 <h2 class="section-title">📚 代表的なフルート作品（年代順）</h2>
 <table class="works-table">
-<tr><td class="year">1720</td><td>フルートソナタ BWV1030</td></tr><tr><td class="year">1720</td><td>フルートソナタ BWV1031</td></tr><tr><td class="year">1724</td><td>フルートソナタ BWV1032</td></tr><tr><td class="year">1735</td><td>管弦楽組曲 第2番 BWV1067</td></tr>
+<tr><td class="year">1720</td><td>フルートソナタ BWV1030</td><td></td></tr><tr><td class="year">1720</td><td>フルートソナタ BWV1031</td><td></td></tr><tr><td class="year">1724</td><td>フルートソナタ BWV1032</td><td></td></tr><tr><td class="year">1735</td><td>管弦楽組曲 第2番 BWV1067</td><td></td></tr>
 </table>
 
 <h2 class="section-title">▶️ おすすめ演奏</h2>
-
-<div>
-<iframe width="100%" height="315" src="https://www.youtube.com/embed/xa8zK2b0iJ0" frameborder="0" allowfullscreen></iframe>
-</div>
+<p><a href="https://www.youtube.com/embed/xa8zK2b0iJ0" target="_blank">YouTubeで見る</a></p>
 
 </div>
 </body>
