@@ -1,0 +1,419 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>マルセル・モイーズ - Flute Library</title>
+  <style>
+    body {
+      font-family: "Segoe UI", "Hiragino Sans", "Helvetica Neue", sans-serif;
+      margin: 0;
+      background: linear-gradient(135deg, #f5f1eb 0%, #ede8e0 100%);
+      color: #3a3a3a;
+      line-height: 1.8;
+    }
+
+    header {
+      background: linear-gradient(135deg, #4a5568 0%, #5a6b7f 100%);
+      padding: 50px 20px;
+      text-align: center;
+      border-bottom: 3px solid #c9a876;
+      position: relative;
+      overflow: hidden;
+    }
+
+    header::before {
+      content: "♪";
+      position: absolute;
+      top: 10px;
+      left: 20px;
+      font-size: 3rem;
+      color: #c9a876;
+      opacity: 0.3;
+    }
+
+    header::after {
+      content: "♪";
+      position: absolute;
+      bottom: 10px;
+      right: 20px;
+      font-size: 3rem;
+      color: #c9a876;
+      opacity: 0.3;
+    }
+
+    header h1 {
+      font-size: 2.2rem;
+      margin: 0;
+      color: #f5f1eb;
+      letter-spacing: 2px;
+      font-weight: 300;
+    }
+
+    header p {
+      margin-top: 10px;
+      color: #c9a876;
+      font-size: 1rem;
+      font-style: italic;
+      letter-spacing: 1px;
+    }
+
+    .container {
+      max-width: 900px;
+      margin: 40px auto;
+      background: #fff;
+      padding: 40px;
+      border-radius: 10px;
+      box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+    }
+
+    h2 {
+      font-size: 1.7rem;
+      margin-top: 45px;
+      margin-bottom: 20px;
+      border-left: 5px solid #c9a876;
+      padding-left: 15px;
+      color: #4a5568;
+      font-weight: 500;
+    }
+
+    h2::before {
+      content: "";
+      display: inline-block;
+      width: 8px;
+      height: 8px;
+      background: #c9a876;
+      border-radius: 50%;
+      margin-right: 12px;
+      vertical-align: middle;
+    }
+
+    h3 {
+      font-size: 1.3rem;
+      margin-top: 28px;
+      margin-bottom: 12px;
+      color: #5a6b7f;
+      font-weight: 500;
+      border-bottom: 1px dotted #d9cec0;
+      padding-bottom: 8px;
+    }
+
+    .spice-box {
+      background: linear-gradient(135deg, #f9f6f1 0%, #f1ebe3 100%);
+      border-left: 4px solid #c9a876;
+      border-right: 1px solid #e8ddd0;
+      border-top: 1px solid #e8ddd0;
+      border-bottom: 1px solid #e8ddd0;
+      padding: 20px 22px;
+      margin: 25px 0;
+      border-radius: 6px;
+      box-shadow: inset 0 1px 3px rgba(201, 168, 118, 0.1);
+    }
+
+    .spice-box p {
+      margin: 10px 0;
+      line-height: 1.7;
+    }
+
+    .spice-box strong {
+      color: #4a5568;
+    }
+
+    ul {
+      margin: 15px 0;
+      padding-left: 25px;
+    }
+
+    ul li {
+      margin-bottom: 12px;
+      line-height: 1.7;
+      color: #3a3a3a;
+    }
+
+    a {
+      color: #5a6b7f;
+      text-decoration: none;
+      border-bottom: 2px solid #c9a876;
+      transition: all 0.3s ease;
+    }
+
+    a:hover {
+      color: #c9a876;
+      border-bottom: 2px solid #5a6b7f;
+    }
+
+    .back-link {
+      text-align: center;
+      margin-top: 40px;
+      padding-top: 20px;
+      border-top: 1px solid #e8ddd0;
+    }
+
+    .back-link a {
+      display: inline-block;
+      background: #5a6b7f;
+      color: white;
+      padding: 10px 20px;
+      border-radius: 8px;
+      transition: all 0.3s ease;
+      border: none;
+    }
+
+    .back-link a:hover {
+      background: #4a5568;
+      border: none;
+    }
+
+    .image-block {
+      display: flex;
+      gap: 30px;
+      align-items: flex-start;
+      margin: 30px 0 40px 0;
+      padding-bottom: 30px;
+      border-bottom: 1px solid #e8ddd0;
+    }
+
+    .image-wrapper {
+      text-align: center;
+      flex-shrink: 0;
+    }
+
+    .image-wrapper img {
+      width: 200px;
+      height: 200px;
+      border-radius: 50%;
+      object-fit: cover;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+      display: block;
+      margin-bottom: 8px;
+    }
+
+    .credit {
+      font-size: 0.8rem;
+      color: #666;
+      margin: 0;
+    }
+
+    .info-block {
+      flex: 1;
+    }
+
+    .info-block h1 {
+      margin: 0 0 8px 0;
+      font-size: 1.8rem;
+      color: #4a5568;
+      font-weight: 600;
+    }
+
+    .info-block p {
+      margin: 4px 0;
+      line-height: 1.6;
+      color: #3a3a3a;
+    }
+
+    .info-block strong {
+      color: #4a5568;
+      font-weight: 600;
+    }
+
+    .affiliate-wrap { max-width:900px; margin: 40px auto; padding: 0 20px; }
+  </style>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-SJJBPGTQ02"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-SJJBPGTQ02');
+  </script>
+</head>
+<body>
+  <header>
+    <h1>マルセル・モイーズ</h1>
+    <p>Marcel Moyse / フルート奏者・教育者・編曲家</p>
+  </header>
+
+  <div class="container">
+
+    <div class="image-block">
+      <div class="image-wrapper">
+        <img src="../images/moyse.jpg" alt="マルセル・モイーズ">
+        <p class="credit">マルセル・モイーズ</p>
+      </div>
+      
+      <div class="info-block">
+        <h1>マルセル・モイーズ</h1>
+        <p><strong>Marcel Moyse</strong></p>
+        <p>1896年5月17日 – 1984年11月7日</p>
+        <p><strong>生まれ：</strong> フランス（アントル）</p>
+        <p><strong>職業：</strong> フルート奏者・教育者・編曲家</p>
+        <p><strong>分野：</strong> フルート音楽・教則本・編曲</p>
+      </div>
+    </div>
+
+    <h2>生涯と活動</h2>
+
+    <p>
+      <strong>マルセル・モイーズ（1896年5月17日 - 1984年11月7日）</strong>は、
+      20世紀を代表するフランスの偉大なフルート奏者であり、教育者、編曲家である。
+      モイーズは<strong>現代フルート奏法の確立</strong>に中心的な役割を果たし、
+      その影響力は今日のフルート界に深く浸透している。
+    </p>
+
+    <p>
+      生涯にわたって<strong>フルート音楽の完成度と表現力</strong>を追求し続けたモイーズは、
+      単なる技術家ではなく、音楽家としての深い思想を持つ人物であった。
+      その教育理念は、世界中のフルート学習者に引き継がれている。
+    </p>
+
+    <h3>✦ 初期人生と音楽教育</h3>
+    <p>
+      モイーズは<strong>フランスのアントルにて生まれ</strong>、幼少期からフルートの才能を示した。
+      パリ音楽院で教育を受け、19世紀から20世紀初頭のフルート伝統を学んだ。
+      若き日のモイーズは既に<strong>技術的完成度と表現力</strong>で注目されており、
+      早くからコンサート活動を開始した。
+    </p>
+
+    <h3>✦ パリ・オペラ座時代</h3>
+    <p>
+      モイーズの職業キャリアの中で最も長く重要なのが、<strong>パリ・オペラ座での奏者活動</strong>である。
+      ここで彼は数十年にわたって主席フルート奏者を務め、
+      <strong>フランス・フルート奏法の最高峰</strong>を代表する存在となった。
+    </p>
+
+    <p>
+      オペラの演奏の傍ら、モイーズは<strong>ソリストとしてのコンサート活動</strong>も積極的に展開。
+      バロック音楽から近代作品まで幅広いレパートリーを有し、
+      多くの作曲家から新作の献呈を受けた。
+    </p>
+
+    <h3>✦ 教育と理論構築</h3>
+    <p>
+      モイーズの最大の遺産は、<strong>系統的で完成度の高い教育メソッドの確立</strong>である。
+      彼は多くの教則本を著し、その著作は今日でも世界中のフルート学習者に利用されている。
+    </p>
+
+    <div class="spice-box">
+      <p>
+        <strong>主な著作・教材：</strong>
+      </p>
+      <ul style="margin: 10px 0; padding-left: 20px;">
+        <li>《Enseignement Complet de la Flûte》（フルート教則本の決定版）</li>
+        <li>《De la Sonorité》（音質論：美しい音色を求めて）</li>
+        <li>各種エチュード集</li>
+        <li>編曲作品集（バロック・古典作品の編曲）</li>
+      </ul>
+    </div>
+
+    <p>
+      これらの著作は単なる「技術書」ではなく、<strong>フルート音楽の美学と哲学</strong>を示す重要な文献である。
+      モイーズは「テクニックと音楽性は不可分である」という信念を持ち、
+      テクニック練習の中にも<strong>音楽的な感性と表現性</strong>を求めた。
+    </p>
+
+    <h3>✦ 晩年とレガシー</h3>
+    <p>
+      モイーズはパリを中心に長くコンサート活動と教育活動を続けた。
+      高齢になってもなお、<strong>フルート奏者としての姿勢を貫き</strong>、
+      その音色と表現力は衰えることがなかった。
+    </p>
+
+    <p>
+      1984年に88歳で逝去した後も、モイーズの教育理念は継承され続けており、
+      フランス・フルート奏法の伝統を担う多くの奏者たちが彼の下で学んだ。
+      今日、世界のフルート教育の中で「モイーズ・メソッド」は
+      <strong>普遍的で確かなアプローチ</strong>として認識されている。
+    </p>
+
+    <h2>フルート奏法への貢献</h2>
+
+    <h3>✦ 音色美学の確立</h3>
+    <p>
+      モイーズは<strong>「フルートは人間の声のように歌わねばならない」</strong>という信念を持っていた。
+      彼の音色論は、単に「美しい音」の追求ではなく、
+      <strong>音楽的内容を伝える手段としての音色</strong>を考えた深い思考から生まれている。
+    </p>
+
+    <h3>✦ テクニックと音楽性の融合</h3>
+    <p>
+      モイーズ以前のフルート教育では、テクニック練習と音楽表現が分離されがちであった。
+      彼は<strong>エチュード（練習曲）の中に音楽的な価値</strong>を見出し、
+      技術習得のプロセスを音楽的な成長へ結びつけた。
+    </p>
+
+    <h3>✦ 編曲と作品選定</h3>
+    <p>
+      モイーズは多くの編曲作品を遺している。
+      バロック時代の作品から古典派、さらには近代作品まで、
+      フルートの音楽的可能性を最大限に活かすための編曲を行った。
+      これらの編曲は<strong>フルート・レパートリーの拡充</strong>に大きく貢献した。
+    </p>
+
+    <h2>代表作と作品</h2>
+
+    <p>
+      モイーズは作曲家というより奏者・教育者として知られているが、
+      いくつかの重要な作品を遺している：
+    </p>
+
+    <ul>
+      <li><strong>《25のメロディ・フィジカルエクササイズ》</strong> - 音色と技術を同時に鍛える傑作エチュード集</li>
+      <li><strong>《De la Sonorité - Exercises》</strong> - 美しい音色を求めるための基礎的なエクササイズ</li>
+      <li><strong>編曲：J.S.バッハ、ヘンデル、テレマンなど</strong> - フルート・レパートリーの充実に貢献</li>
+      <li><strong><a href="../works/enseignement_complet_de_la_flute_page.html">《フルート教則本（Enseignement Complet de la Flûte）》</a></strong> - 体系的で完成度の高い教則書</li>
+    </ul>
+
+    <h2>教育者としての影響</h2>
+
+    <p>
+      モイーズは<strong>パリ音楽院の教授</strong>として多くの優秀なフルート奏者を育成した。
+      彼の下で学んだ弟子たちは、世界中でコンサート活動や教育活動を展開し、
+      <strong>フランス・フルート奏法の伝統を継承</strong>している。
+    </p>
+
+    <div class="spice-box">
+      <p>
+        <strong>モイーズ教育の特徴：</strong>
+      </p>
+      <ul style="margin: 10px 0; padding-left: 20px;">
+        <li>音色の質を最優先に考える</li>
+        <li>技術習得を音楽的表現へ結びつける</li>
+        <li>フレージングと音楽的線の重要性を強調</li>
+        <li>歴史的・文化的背景の理解を重視</li>
+        <li>個性と創造性の発展を尊重する</li>
+      </ul>
+    </div>
+
+    <h2>現在における評価と意義</h2>
+
+    <p>
+      20世紀後半以降、フルート教育の多様化が進む中でも、
+      <strong>モイーズの教育理念は普遍的価値</strong>を保ち続けている。
+      彼の著作は今日でも世界中で翻訳・出版され、
+      フルート学習者の「バイブル」として認識されている。
+    </p>
+
+    <p>
+      モイーズは単なる「技術家」ではなく、<strong>フルート音楽の美学を追求した思想家</strong>であり、
+      その遺産は「フルートというバロック楽器の音色と表現力の可能性」を
+      最大限に引き出す道を示すものである。
+    </p>
+
+    <p>
+      今日、フルート初心者からプロの奏者まで、世界中のフルート学習者が
+      モイーズの教則本に学び、その影響下で音楽活動を展開している。
+      これはモイーズの教育理念が、時代を超えた<strong>確実な価値</strong>を持つことを証明している。
+    </p>
+
+    <div class="back-link">
+      <a href="../composers/composer_list_page.html">← 作曲家一覧に戻る</a>
+    </div>
+
+  </div>
+
+  <footer style="text-align: center; padding: 20px; color: #999; font-size: 0.85rem; margin-top: 40px;">
+    <p>&copy; 2025-2026 Flute Library</p>
+  </footer>
+
+</body>
+</html>
