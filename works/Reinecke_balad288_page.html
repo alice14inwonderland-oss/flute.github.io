@@ -142,6 +142,48 @@
       border-bottom: 2px solid #5a6b7f;
     }
 
+    .youtube-box {
+      background: linear-gradient(135deg, #fff5f5 0%, #ffe8e8 100%);
+      border-left: 4px solid #e74c3c;
+      padding: 25px;
+      margin: 30px 0;
+      border-radius: 8px;
+      box-shadow: 0 4px 12px rgba(231, 76, 60, 0.1);
+      text-align: center;
+    }
+
+    .youtube-box p {
+      margin: 0 0 15px 0;
+      color: #4a5568;
+      font-size: 1rem;
+    }
+
+    .youtube-btn {
+      display: inline-block;
+      background: linear-gradient(135deg, #e74c3c 0%, #c0392b 100%);
+      color: white;
+      padding: 12px 30px;
+      border-radius: 25px;
+      text-decoration: none;
+      font-weight: 600;
+      transition: all 0.3s ease;
+      border: none;
+      cursor: pointer;
+      box-shadow: 0 4px 15px rgba(231, 76, 60, 0.3);
+    }
+
+    .youtube-btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 20px rgba(231, 76, 60, 0.4);
+      border-bottom: none;
+      color: white;
+    }
+
+    .youtube-btn::before {
+      content: "▶ ";
+      margin-right: 8px;
+    }
+
     .affiliate-wrap { max-width:900px; margin: 40px auto; padding: 0 20px; }
   </style>
   <!-- Google tag (gtag.js) -->
@@ -160,6 +202,11 @@
   </header>
 
   <div class="container">
+
+    <div class="youtube-box">
+      <p>🎵 この作品の演奏をYouTubeで視聴</p>
+      <a href="https://www.youtube.com/watch?v=pTiYPUyTxzo" target="_blank" class="youtube-btn">演奏動画を見る</a>
+    </div>
 
     <h2>作曲者と作品の歴史的背景</h2>
 
