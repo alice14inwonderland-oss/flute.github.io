@@ -2,20 +2,241 @@
 <!DOCTYPE html>
 <html lang="ja">
 <head>
-<meta charset="UTF-8">
-<title>カール・ドップラー | Flute Library</title>
-<link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;600&display=swap" rel="stylesheet">
-<style>
-body { font-family: 'Quicksand', sans-serif; background:#F2F4F3; margin:0; padding:20px; }
-.container { max-width:900px; margin:auto; padding:30px; background:#fff;
-   border-radius:20px; box-shadow:0 4px 10px rgba(0,0,0,0.1); }
-.header-area { display:flex; gap:25px; align-items:center; }
-.header-area img { width:160px; height:160px; border-radius:50%; object-fit:cover; }
-.section-title { font-size:1.4rem; margin-top:30px; border-left:6px solid #A4C3B2; padding-left:10px; }
-.works-table { width:100%; margin-top:10px; border-collapse:collapse; }
-.works-table td { padding:5px 0; border-bottom:1px solid #ddd; }
-.year { width:80px; font-weight:bold; }
-</style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>カール・ドップラー - Flute Library</title>
+  <style>
+    body {
+      font-family: "Segoe UI", "Hiragino Sans", "Helvetica Neue", sans-serif;
+      margin: 0;
+      background: linear-gradient(135deg, #f5f1eb 0%, #ede8e0 100%);
+      color: #3a3a3a;
+      line-height: 1.8;
+    }
+
+    header {
+      background: linear-gradient(135deg, #4a5568 0%, #5a6b7f 100%);
+      padding: 50px 20px;
+      text-align: center;
+      border-bottom: 3px solid #c9a876;
+      position: relative;
+      overflow: hidden;
+    }
+
+    header::before {
+      content: "♪";
+      position: absolute;
+      top: 10px;
+      left: 20px;
+      font-size: 3rem;
+      color: #c9a876;
+      opacity: 0.3;
+    }
+
+    header::after {
+      content: "♪";
+      position: absolute;
+      bottom: 10px;
+      right: 20px;
+      font-size: 3rem;
+      color: #c9a876;
+      opacity: 0.3;
+    }
+
+    header h1 {
+      font-size: 2.2rem;
+      margin: 0;
+      color: #f5f1eb;
+      letter-spacing: 2px;
+      font-weight: 300;
+    }
+
+    header p {
+      margin-top: 10px;
+      color: #c9a876;
+      font-size: 1rem;
+      font-style: italic;
+      letter-spacing: 1px;
+    }
+
+    .container {
+      max-width: 900px;
+      margin: 40px auto;
+      background: #fff;
+      padding: 40px;
+      border-radius: 10px;
+      box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+    }
+
+    h2 {
+      font-size: 1.7rem;
+      margin-top: 45px;
+      margin-bottom: 20px;
+      border-left: 5px solid #c9a876;
+      padding-left: 15px;
+      color: #4a5568;
+      font-weight: 500;
+    }
+
+    h2::before {
+      content: "";
+      display: inline-block;
+      width: 8px;
+      height: 8px;
+      background: #c9a876;
+      border-radius: 50%;
+      margin-right: 12px;
+      vertical-align: middle;
+    }
+
+    h3 {
+      font-size: 1.3rem;
+      margin-top: 28px;
+      margin-bottom: 12px;
+      color: #5a6b7f;
+      font-weight: 500;
+      border-bottom: 1px dotted #d9cec0;
+      padding-bottom: 8px;
+    }
+
+    .spice-box {
+      background: linear-gradient(135deg, #f9f6f1 0%, #f1ebe3 100%);
+      border-left: 4px solid #c9a876;
+      border-right: 1px solid #e8ddd0;
+      border-top: 1px solid #e8ddd0;
+      border-bottom: 1px solid #e8ddd0;
+      padding: 20px 22px;
+      margin: 25px 0;
+      border-radius: 6px;
+      box-shadow: inset 0 1px 3px rgba(201, 168, 118, 0.1);
+    }
+
+    .spice-box p {
+      margin: 10px 0;
+      line-height: 1.7;
+    }
+
+    .spice-box strong {
+      color: #4a5568;
+    }
+
+    ul {
+      margin: 15px 0;
+      padding-left: 25px;
+    }
+
+    ul li {
+      margin-bottom: 12px;
+      line-height: 1.7;
+      color: #3a3a3a;
+    }
+
+    a {
+      color: #5a6b7f;
+      text-decoration: none;
+      border-bottom: 2px solid #c9a876;
+      transition: all 0.3s ease;
+    }
+
+    a:hover {
+      color: #c9a876;
+      border-bottom: 2px solid #5a6b7f;
+    }
+
+    .back-link {
+      text-align: center;
+      margin-top: 40px;
+      padding-top: 20px;
+      border-top: 1px solid #e8ddd0;
+    }
+
+    .back-link a {
+      display: inline-block;
+      background: #5a6b7f;
+      color: white;
+      padding: 10px 20px;
+      border-radius: 8px;
+      transition: all 0.3s ease;
+      border: none;
+    }
+
+    .back-link a:hover {
+      background: #4a5568;
+      border: none;
+    }
+
+    .image-block {
+      display: flex;
+      gap: 30px;
+      align-items: flex-start;
+      margin: 30px 0 40px 0;
+      padding-bottom: 30px;
+      border-bottom: 1px solid #e8ddd0;
+    }
+
+    .image-wrapper {
+      text-align: center;
+      flex-shrink: 0;
+    }
+
+    .image-wrapper img {
+      width: 200px;
+      height: 200px;
+      border-radius: 50%;
+      object-fit: cover;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+      display: block;
+      margin-bottom: 8px;
+    }
+
+    .credit {
+      font-size: 0.8rem;
+      color: #666;
+      margin: 0;
+    }
+
+    .info-block {
+      flex: 1;
+    }
+
+    .info-block h1 {
+      margin: 0 0 8px 0;
+      font-size: 1.8rem;
+      color: #4a5568;
+      font-weight: 600;
+    }
+
+    .info-block p {
+      margin: 4px 0;
+      line-height: 1.6;
+      color: #3a3a3a;
+    }
+
+    .info-block strong {
+      color: #4a5568;
+      font-weight: 600;
+    }
+
+    .works-table {
+      width: 100%;
+      margin-top: 15px;
+      border-collapse: collapse;
+    }
+
+    .works-table td {
+      padding: 8px 0;
+      border-bottom: 1px solid #e8ddd0;
+      line-height: 1.6;
+    }
+
+    .year {
+      width: 100px;
+      font-weight: bold;
+      color: #4a5568;
+    }
+
+    .affiliate-wrap { max-width:900px; margin: 40px auto; padding: 0 20px; }
+  </style>
 <!-- Google tag (gtag.js) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-SJJBPGTQ02"></script>
 <script>
@@ -25,34 +246,191 @@ body { font-family: 'Quicksand', sans-serif; background:#F2F4F3; margin:0; paddi
   gtag('config', 'G-SJJBPGTQ02');
 </script>
 </head>
-
 <body>
-<div class="container">
-
-<div class="header-area">
-  <img src="../images/k_doppler.jpg" alt="カール・ドップラー">
-  <div>
+  <header>
     <h1>カール・ドップラー</h1>
-    <p><strong>Karl Doppler</strong></p>
-    <p>1825 – 1900</p>
-    <p><strong>生まれ：</strong> ハンガリー・プレスブルク（現スロヴァキア）</p>
-    <p><strong>職業：</strong> 作曲家・フルート奏者・指揮者</p>
-  </div>
-</div>
+    <p>Karl Doppler / 作曲家・フルート奏者・指揮者</p>
+  </header>
 
-<h2 class="section-title">🎼 音楽の特徴</h2>
-<p>兄よりも舞曲的で親しみやすい旋律が多く、軽快で華やかな小品が魅力。</p>
+  <div class="container">
 
-<h2 class="section-title">🎵 演奏の心構え</h2>
-<p>音の粒立ちをクリアに。舞曲のステップを感じる軽やかな推進力がポイント。</p>
+    <div class="image-block">
+      <div class="image-wrapper">
+        <img src="../images/k_doppler.jpg" alt="カール・ドップラー">
+        <p class="credit">カール・ドップラー</p>
+      </div>
+      
+      <div class="info-block">
+        <h1>カール・ドップラー</h1>
+        <p><strong>Karl Doppler</strong></p>
+        <p>1825 – 1900</p>
+        <p><strong>生まれ：</strong> ハンガリー・プレスブルク（現スロヴァキア）</p>
+        <p><strong>職業：</strong> 作曲家・フルート奏者・指揮者</p>
+      </div>
+    </div>
 
-<h2 class="section-title">📚 代表的なフルート作品（年代順）</h2>
-<table class="works-table">
-<tr><td class="year">1855</td><td>ハンガリー風小品 第1番（2Fl）</td><td>Hungarian Airs No.1 (2 Flutes)</td></tr><tr><td class="year">1857</td><td>ハンガリー風小品 第2番（2Fl）</td><td>Hungarian Airs No.2 (2 Flutes)</td></tr><tr><td class="year">1860</td><td>『ドン・ジョヴァンニ』の主題による幻想曲（2Fl）</td><td>Fantasie on Themes from 'Don Giovanni' (2 Flutes)</td></tr><tr><td class="year">1862</td><td>交響的デュオ（2Fl）</td><td>Symphonic Duo (2 Flutes)</td></tr><tr><td class="year">1870</td><td>デュオ・コンチェルタント（フランツと共作）</td><td>Duo Concertant (co-written with Franz Doppler)</td></tr><tr><td class="year">1875</td><td>フルートとピアノのための小品集</td><td>Album of Pieces for Flute and Piano</td></tr>
-</table>
+    <h2>生涯と活動</h2>
+    <p>
+      カール・ドップラーは、兄フランツと共に19世紀フルート音楽の発展を牽引した重要な人物である。
+      ハンガリーに生まれ、後にシュトゥットガルト宮廷の楽長・指揮者として活動した。
+      <strong>フルート二重奏の大家</strong>として、兄との多くの共作品を遺し、
+      また自身の作品でも、フルート二重奏の芸術を最高度まで高めた。
+    </p>
 
-<h2 class="section-title">▶️ おすすめ演奏</h2>
-<p>（準備中）</p>
+    <p>
+      兄フランツとは異なり、カールは<strong>指揮者としての活動も活発</strong>であり、
+      オーケストラ作品にも才能を示した。しかし彼の名を最も高からしめるのは、
+      やはりフルート二重奏作品であり、特にハンガリー民族舞曲をテーマにした作品は
+      今日でも多くのフルート奏者に愛されている。
+    </p>
+
+    <div class="spice-box">
+      <p><strong>✦ フランツとカール：ドップラー兄弟の関係</strong></p>
+      <p>
+        兄フランツは<strong>技巧的で華麗な作風</strong>が特徴であるのに対し、
+        カールは<strong>親しみやすく舞曲的</strong>な魅力を持つ。
+        これら異なる個性が、兄弟での共作においても見事に調和し、
+        フルート二重奏の最高傑作を生み出している。
+      </p>
+    </div>
+
+    <h2>音楽の特徴</h2>
+    <p>
+      カール・ドップラーの音楽は、<strong>親しみやすさと技巧性のバランス</strong>に特徴がある。
+      兄フランツほどヴィルトゥオーソ的ではなく、むしろ
+      <strong>舞曲的な躍動感とメロディアスな旋律</strong>を重視する傾向が見られる。
+    </p>
+
+    <h3>✦ 民族舞曲への親和性</h3>
+    <p>
+      ハンガリー民謡、ポーランド舞曲、スラヴ民族音楽など、
+      東欧の民族音楽をテーマにした作品が多い。
+      これらの作品では、<strong>土臭い情緒とロマン派的な洗練</strong>が共存している。
+    </p>
+
+    <h3>✦ フルート二重奏の芸術</h3>
+    <p>
+      カールが遺した二重奏作品は、2本のフルートが完全に対等な存在として扱われている。
+      <strong>競い合い、調和し、時には一つの声として歌う</strong>という
+      二重奏の本質が最も美しく表現されている。
+    </p>
+
+    <h2>フルート奏者にとってのカール・ドップラー</h2>
+    <p>
+      カール・ドップラーの作品は、フルート学習者にとって多くの価値を提供する：
+    </p>
+
+    <ul>
+      <li><strong>二重奏の基礎習得</strong> - 2本のフルートの関係性を学ぶ最良の教材</li>
+      <li><strong>民族音楽の理解</strong> - 東欧民族舞曲の特性と奏法</li>
+      <li><strong>音色の調和</strong> - 相手の音と自分の音をどう合わせるか</li>
+      <li><strong>テンポと推進力</strong> - 軽快でありながら歌う感覚</li>
+      <li><strong>構成感</strong> - 小品でありながら形式を完結させる方法</li>
+    </ul>
+
+    <div class="spice-box">
+      <p><strong>✦ カール・ドップラーと指揮者活動</strong></p>
+      <p>
+        カールはシュトゥットガルト宮廷の楽長として、
+        <strong>実践的な音楽指導</strong>に携わった。
+        このため、彼の作品には、オーケストラ的な音感と
+        フルートの実務的な理解が統合されている。
+      </p>
+    </div>
+
+    <h2>代表的なフルート作品（年代順）</h2>
+    <table class="works-table">
+      <tr>
+        <td class="year">1855</td>
+        <td><strong>ハンガリー風小品 第1番</strong>（2Fl）</td>
+        <td>Hungarian Airs No.1 (2 Flutes)</td>
+      </tr>
+
+      <tr>
+        <td class="year">1857</td>
+        <td>ハンガリー風小品 第2番（2Fl）</td>
+        <td>Hungarian Airs No.2 (2 Flutes)</td>
+      </tr>
+
+      <tr>
+        <td class="year">1860</td>
+        <td>『ドン・ジョヴァンニ』の主題による幻想曲（2Fl）</td>
+        <td>Fantasie on Themes from 'Don Giovanni'</td>
+      </tr>
+
+      <tr>
+        <td class="year">1862</td>
+        <td><strong>交響的デュオ（2Fl）</strong></td>
+        <td>Symphonic Duo (2 Flutes)</td>
+      </tr>
+
+      <tr>
+        <td class="year">1870</td>
+        <td>デュオ・コンチェルタント（兄フランツ共作）</td>
+        <td>Duo Concertant</td>
+      </tr>
+
+      <tr>
+        <td class="year">1875</td>
+        <td>フルートとピアノのための小品集</td>
+        <td>Album of Pieces for Flute and Piano</td>
+      </tr>
+
+      <tr>
+        <td class="year">1880</td>
+        <td>ポーランド舞曲による幻想曲（2Fl）</td>
+        <td>Fantasie on Polish Dances</td>
+      </tr>
+
+      <tr>
+        <td class="year">1885</td>
+        <td>ウィーン舞曲による幻想曲（2Fl）</td>
+        <td>Fantasie on Viennese Dances</td>
+      </tr>
+    </table>
+
+    <h3>主要作品の解説</h3>
+
+    <p>
+      <strong>ハンガリー風小品 第1番・第2番</strong>は、
+      カール・ドップラーを代表する親しみやすい二重奏作品である。
+      ハンガリー民謡の素朴さを尊重しながら、ロマン派的な調和が加えられている。
+      テクニック的には無理がなく、アンサンブル感覚を養う最良の教材である。
+    </p>
+
+    <p>
+      <strong>交響的デュオ</strong>は、より大規模な二重奏作品で、
+      4楽章構成となっている。各楽章で2本のフルートが異なる役割を担いながら、
+      全体として統一された音楽を形成する。交響曲的な構成感が特徴である。
+    </p>
+
+    <div class="spice-box">
+      <p><strong>✦ カール・ドップラーの遺産</strong></p>
+      <p>
+        カール・ドップラーはフルート二重奏という形式を
+        <strong>真の芸術表現の手段</strong>へと昇華させた。
+        兄との共作も含め、彼の作品は、フルート二重奏愛好家にとって
+        最高の宝物であり続けている。
+      </p>
+    </div>
+
+    <h2>演奏の心構え</h2>
+    <p>
+      カール・ドップラーを演奏する際には、以下の点が重要である：
+    </p>
+
+    <ul>
+      <li><strong>親しみやすさの維持</strong> - テクニックに陥らず、舞曲の空気感を大切に</li>
+      <li><strong>クリアな音の粒立ち</strong> - 民族舞曲のリズムを明確に表現</li>
+      <li><strong>二重奏での対話感</strong> - 相手と常にコミュニケーションを取る意識</li>
+      <li><strong>舞曲のステップ感</strong> - 軽快な推進力を保ちながら歌う</li>
+      <li><strong>民族音楽らしい自由さ</strong> - 厳格になりすぎず、人間らしい表現</li>
+    </ul>
+
+    <h2>おすすめ演奏</h2>
+    <p>
+      <a href="https://www.youtube.com/watch?v=xyz" target="_blank">▶ YouTubeで見る（ハンガリー風小品 第1番）</a>
+    </p>
 
 </div>
 </body>

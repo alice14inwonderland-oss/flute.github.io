@@ -2,20 +2,241 @@
 <!DOCTYPE html>
 <html lang="ja">
 <head>
-<meta charset="UTF-8">
-<title>ヨハン・ゼバスティアン・バッハ | Flute Library</title>
-<link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;600&display=swap" rel="stylesheet">
-<style>
-body { font-family: 'Quicksand', sans-serif; background:#F2F4F3; margin:0; padding:20px; }
-.container { max-width:900px; margin:auto; padding:30px; background:#fff;
-   border-radius:20px; box-shadow:0 4px 10px rgba(0,0,0,0.1); }
-.header-area { display:flex; gap:25px; align-items:center; }
-.header-area img { width:160px; height:160px; border-radius:50%; object-fit:cover; }
-.section-title { font-size:1.4rem; margin-top:30px; border-left:6px solid #A4C3B2; padding-left:10px; }
-.works-table { width:100%; margin-top:10px; border-collapse:collapse; }
-.works-table td { padding:5px 0; border-bottom:1px solid #ddd; }
-.year { width:80px; font-weight:bold; }
-</style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ヨハン・ゼバスティアン・バッハ - Flute Library</title>
+  <style>
+    body {
+      font-family: "Segoe UI", "Hiragino Sans", "Helvetica Neue", sans-serif;
+      margin: 0;
+      background: linear-gradient(135deg, #f5f1eb 0%, #ede8e0 100%);
+      color: #3a3a3a;
+      line-height: 1.8;
+    }
+
+    header {
+      background: linear-gradient(135deg, #4a5568 0%, #5a6b7f 100%);
+      padding: 50px 20px;
+      text-align: center;
+      border-bottom: 3px solid #c9a876;
+      position: relative;
+      overflow: hidden;
+    }
+
+    header::before {
+      content: "♪";
+      position: absolute;
+      top: 10px;
+      left: 20px;
+      font-size: 3rem;
+      color: #c9a876;
+      opacity: 0.3;
+    }
+
+    header::after {
+      content: "♪";
+      position: absolute;
+      bottom: 10px;
+      right: 20px;
+      font-size: 3rem;
+      color: #c9a876;
+      opacity: 0.3;
+    }
+
+    header h1 {
+      font-size: 2.2rem;
+      margin: 0;
+      color: #f5f1eb;
+      letter-spacing: 2px;
+      font-weight: 300;
+    }
+
+    header p {
+      margin-top: 10px;
+      color: #c9a876;
+      font-size: 1rem;
+      font-style: italic;
+      letter-spacing: 1px;
+    }
+
+    .container {
+      max-width: 900px;
+      margin: 40px auto;
+      background: #fff;
+      padding: 40px;
+      border-radius: 10px;
+      box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+    }
+
+    h2 {
+      font-size: 1.7rem;
+      margin-top: 45px;
+      margin-bottom: 20px;
+      border-left: 5px solid #c9a876;
+      padding-left: 15px;
+      color: #4a5568;
+      font-weight: 500;
+    }
+
+    h2::before {
+      content: "";
+      display: inline-block;
+      width: 8px;
+      height: 8px;
+      background: #c9a876;
+      border-radius: 50%;
+      margin-right: 12px;
+      vertical-align: middle;
+    }
+
+    h3 {
+      font-size: 1.3rem;
+      margin-top: 28px;
+      margin-bottom: 12px;
+      color: #5a6b7f;
+      font-weight: 500;
+      border-bottom: 1px dotted #d9cec0;
+      padding-bottom: 8px;
+    }
+
+    .spice-box {
+      background: linear-gradient(135deg, #f9f6f1 0%, #f1ebe3 100%);
+      border-left: 4px solid #c9a876;
+      border-right: 1px solid #e8ddd0;
+      border-top: 1px solid #e8ddd0;
+      border-bottom: 1px solid #e8ddd0;
+      padding: 20px 22px;
+      margin: 25px 0;
+      border-radius: 6px;
+      box-shadow: inset 0 1px 3px rgba(201, 168, 118, 0.1);
+    }
+
+    .spice-box p {
+      margin: 10px 0;
+      line-height: 1.7;
+    }
+
+    .spice-box strong {
+      color: #4a5568;
+    }
+
+    ul {
+      margin: 15px 0;
+      padding-left: 25px;
+    }
+
+    ul li {
+      margin-bottom: 12px;
+      line-height: 1.7;
+      color: #3a3a3a;
+    }
+
+    a {
+      color: #5a6b7f;
+      text-decoration: none;
+      border-bottom: 2px solid #c9a876;
+      transition: all 0.3s ease;
+    }
+
+    a:hover {
+      color: #c9a876;
+      border-bottom: 2px solid #5a6b7f;
+    }
+
+    .back-link {
+      text-align: center;
+      margin-top: 40px;
+      padding-top: 20px;
+      border-top: 1px solid #e8ddd0;
+    }
+
+    .back-link a {
+      display: inline-block;
+      background: #5a6b7f;
+      color: white;
+      padding: 10px 20px;
+      border-radius: 8px;
+      transition: all 0.3s ease;
+      border: none;
+    }
+
+    .back-link a:hover {
+      background: #4a5568;
+      border: none;
+    }
+
+    .image-block {
+      display: flex;
+      gap: 30px;
+      align-items: flex-start;
+      margin: 30px 0 40px 0;
+      padding-bottom: 30px;
+      border-bottom: 1px solid #e8ddd0;
+    }
+
+    .image-wrapper {
+      text-align: center;
+      flex-shrink: 0;
+    }
+
+    .image-wrapper img {
+      width: 200px;
+      height: 200px;
+      border-radius: 50%;
+      object-fit: cover;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+      display: block;
+      margin-bottom: 8px;
+    }
+
+    .credit {
+      font-size: 0.8rem;
+      color: #666;
+      margin: 0;
+    }
+
+    .info-block {
+      flex: 1;
+    }
+
+    .info-block h1 {
+      margin: 0 0 8px 0;
+      font-size: 1.8rem;
+      color: #4a5568;
+      font-weight: 600;
+    }
+
+    .info-block p {
+      margin: 4px 0;
+      line-height: 1.6;
+      color: #3a3a3a;
+    }
+
+    .info-block strong {
+      color: #4a5568;
+      font-weight: 600;
+    }
+
+    .works-table {
+      width: 100%;
+      margin-top: 15px;
+      border-collapse: collapse;
+    }
+
+    .works-table td {
+      padding: 8px 0;
+      border-bottom: 1px solid #e8ddd0;
+      line-height: 1.6;
+    }
+
+    .year {
+      width: 100px;
+      font-weight: bold;
+      color: #4a5568;
+    }
+
+    .affiliate-wrap { max-width:900px; margin: 40px auto; padding: 0 20px; }
+  </style>
 <!-- Google tag (gtag.js) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-SJJBPGTQ02"></script>
 <script>
@@ -25,35 +246,185 @@ body { font-family: 'Quicksand', sans-serif; background:#F2F4F3; margin:0; paddi
   gtag('config', 'G-SJJBPGTQ02');
 </script>
 </head>
-
 <body>
-<div class="container">
-
-<div class="header-area">
-  <img src="../images/bach-js.jpg" alt="ヨハン・ゼバスティアン・バッハ">
-  <div>
+  <header>
     <h1>ヨハン・ゼバスティアン・バッハ</h1>
-    <p><strong>Johann Sebastian Bach</strong></p>
-    <p>1685 – 1750</p>
-    <p><strong>生まれ：</strong> ドイツ・アイゼナハ</p>
-    <p><strong>職業：</strong> 作曲家・オルガニスト</p>
+    <p>Johann Sebastian Bach / 作曲家・オルガニスト</p>
+  </header>
+
+  <div class="container">
+
+    <div class="image-block">
+      <div class="image-wrapper">
+        <img src="../images/bach-js.jpg" alt="ヨハン・ゼバスティアン・バッハ">
+        <p class="credit">ヨハン・ゼバスティアン・バッハ</p>
+      </div>
+      
+      <div class="info-block">
+        <h1>ヨハン・ゼバスティアン・バッハ</h1>
+        <p><strong>Johann Sebastian Bach</strong></p>
+        <p>1685 – 1750</p>
+        <p><strong>生まれ：</strong> ドイツ・アイゼナハ</p>
+        <p><strong>職業：</strong> 作曲家・オルガニスト</p>
+      </div>
+    </div>
+
+    <h2>生涯と活動</h2>
+    <p>
+      ヨハン・ゼバスティアン・バッハは、バロック音楽史上最高の作曲家であり、
+      <strong>西洋音楽の父</strong>と称される巨匠である。
+      ドイツ中部のアイゼナハに生まれ、ライプツィヒの聖トマス教会音楽監督として
+      27年間その職を全うし、1750年に亡くなるまで、
+      常に音楽の理想を追い求め続けた。
+    </p>
+
+    <p>
+      バッハの時代、音楽は教会音楽（カンタータ、受難曲、ミサ曲）と
+      器楽音楽（フーガ、ソナタ、協奏曲）の両分野で発展していた。
+      バッハはこれら全ての領域で傑作を残し、特に
+      <strong>対位法の完成者</strong>として音楽史上の重要な位置を占めている。
+    </p>
+
+    <div class="spice-box">
+      <p><strong>✦ バッハの人生の転機</strong></p>
+      <p>
+        若き日、ヴァイマルやケーテンの宮廷楽士として活動した経験が、
+        バッハの音楽スタイルの形成に大きな影響を与えた。
+        特にケーテンでは多くの器楽作品（管弦楽組曲、フルートソナタ）を作曲し、
+        フルート音楽の発展に貢献した。
+      </p>
+    </div>
+
+    <h2>音楽の特徴</h2>
+    <p>
+      バッハ音楽の最大の特徴は、<strong>厳密な数学的秩序と深い精神性の融合</strong>である。
+      複数の声部が絡み合うポリフォニー（多声音楽）において、
+      各声部は完全な独立性を保ちながらも、
+      全体として完璧な調和を成す。
+    </p>
+
+    <h3>✦ 対位法の芸術</h3>
+    <p>
+      バッハ以前の対位法は技法であったが、バッハはそれを
+      <strong>高度な表現手段へと昇華</strong>させた。
+      フーガでは複数の主題が巧妙に組み合わされ、
+      聴き手は同時に複数の旋律を追うことの喜びを味わう。
+    </p>
+
+    <h3>✦ フルートの扱い</h3>
+    <p>
+      バッハのフルート作品では、フルートの清澄な音色を活かしながら、
+      <strong>複雑な旋律的役割</strong>が与えられている。
+      ソナタでは通奏低音との対話が深く、
+      管弦楽組曲ではオーケストラ内で独立した声部として機能する。
+    </p>
+
+    <h2>フルート奏者にとってのバッハ</h2>
+    <p>
+      バッハのフルート作品は、フルート奏者の基礎教育において
+      <strong>最も重要なレパートリー</strong>である。
+      これらの作品から学べることは多い：
+    </p>
+
+    <ul>
+      <li><strong>旋律の扱い方</strong> - 技巧的でありながら歌う大切さ</li>
+      <li><strong>フレージング感覚</strong> - バロック様式特有の対話的アプローチ</li>
+      <li><strong>音色の多様性</strong> - 同じ楽器でも文脈に応じた音色の変化</li>
+      <li><strong>アンサンブル感覚</strong> - 他の声部との関係性を常に意識すること</li>
+    </ul>
+
+    <div class="spice-box">
+      <p><strong>✦ バッハに学ぶ音楽的思考</strong></p>
+      <p>
+        バッハの作品を深く研究することで、音楽における
+        「秩序」と「自由」の両立、「理性」と「感情」のバランスが理解できる。
+        これは単なるテクニック習得ではなく、音楽人としての根本的な教養を養う。
+      </p>
+    </div>
+
+    <h2>代表的なフルート作品（年代順）</h2>
+    <table class="works-table">
+      <tr>
+        <td class="year">1717–1723</td>
+        <td><strong>フルートソナタ ロ短調 BWV1030</strong></td>
+        <td>Flute Sonata in b minor, BWV 1030</td>
+      </tr>
+      <tr>
+        <td class="year">1717–1723</td>
+        <td>フルートソナタ 変ホ長調 BWV1031</td>
+        <td>Flute Sonata in E♭ major, BWV 1031</td>
+      </tr>
+      <tr>
+        <td class="year">1724–1740</td>
+        <td>フルートソナタ イ長調 BWV1032</td>
+        <td>Flute Sonata in A major, BWV 1032</td>
+      </tr>
+      <tr>
+        <td class="year">1717–1723</td>
+        <td><strong>管弦楽組曲 第2番 ロ短調 BWV1067</strong></td>
+        <td>Orchestral Suite No.2 in b minor, BWV 1067</td>
+      </tr>
+      <tr>
+        <td class="year">1729–1740</td>
+        <td>フルート協奏曲 イ長調 BWV1035</td>
+        <td>Flute Concerto in A major, BWV 1035</td>
+      </tr>
+      <tr>
+        <td class="year">1729–1740</td>
+        <td>フルート協奏曲 ト長調 BWV1050</td>
+        <td>Flute Concerto in G major, BWV 1050</td>
+      </tr>
+    </table>
+
+    <h3>作品について</h3>
+    <p>
+      <strong>BWV1030（ロ短調ソナタ）</strong>はバッハのフルート作品中最高傑作とされ、
+      4楽章構成で、フルートの技巧と音楽表現の完全性を示す。
+      通奏低音（チェンバロとチェロ）との関係性も濃密である。
+    </p>
+
+    <p>
+      <strong>BWV1067（管弦楽組曲第2番）</strong>は、
+      メヌエット、ロンド、ポロネーズなど、フルートが主役となるバロック舞曲で構成される。
+      オーケストラの彩りの中でフルートの音色が最も活躍する作品である。
+    </p>
+
+    <div class="spice-box">
+      <p><strong>✦ バッハの遺産</strong></p>
+      <p>
+        バッハの音楽は、モーツァルト、ベートーヴェン、ブラームスといった後の大作曲家たちに
+        直接的な影響を与えている。彼の作品は、今日でもなお、
+        <strong>音楽理論と実践の最高のテキスト</strong>として機能し続けている。
+      </p>
+    </div>
+
+    <h2>演奏の心構え</h2>
+    <p>
+      バッハを演奏する際には、以下の点が特に重要である：
+    </p>
+
+    <ul>
+      <li><strong>対位法的な独立性</strong> - 自分の声部がメロディーでなくても、常に歌う</li>
+      <li><strong>縦のハーモニー意識</strong> - 各小節でのハーモニー的な役割を理解する</li>
+      <li><strong>バロック奏法</strong> - テンポ・ルバートは抑制的に、アーティキュレーションを明確に</li>
+      <li><strong>通奏低音との対話</strong> - 伴奏パートとの密接な関係を築く</li>
+    </ul>
+
+    <h2>おすすめ演奏</h2>
+    <p>
+      <a href="https://www.youtube.com/embed/xa8zK2b0iJ0" target="_blank">▶ YouTubeで見る（管弦楽組曲第2番）</a>
+    </p>
+
+
+    <div class="back-link">
+      <a href="../composers/composer_list_page.html">← 作曲家一覧に戻る</a>
+    </div>
+
   </div>
-</div>
 
-<h2 class="section-title">🎼 音楽の特徴</h2>
-<p>高度な対位法、緻密な構造美、フルートを活かした清澄な旋律が特徴。</p>
+  <footer style="text-align: center; padding: 20px; color: #999; font-size: 0.85rem; margin-top: 40px;">
+    <p>&copy; 2025-2026 Flute Library</p>
+  </footer>
 
-<h2 class="section-title">🎵 演奏の心構え</h2>
-<p>縦のハーモニーを意識し、旋律を流しすぎず、立体的に演奏すること。</p>
-
-<h2 class="section-title">📚 代表的なフルート作品（年代順）</h2>
-<table class="works-table">
-<tr><td class="year">1720</td><td>フルートソナタ BWV1030</td><td></td></tr><tr><td class="year">1720</td><td>フルートソナタ BWV1031</td><td></td></tr><tr><td class="year">1724</td><td>フルートソナタ BWV1032</td><td></td></tr><tr><td class="year">1735</td><td>管弦楽組曲 第2番 BWV1067</td><td></td></tr>
-</table>
-
-<h2 class="section-title">▶️ おすすめ演奏</h2>
-<p><a href="https://www.youtube.com/embed/xa8zK2b0iJ0" target="_blank">YouTubeで見る</a></p>
-
-</div>
 </body>
 </html>

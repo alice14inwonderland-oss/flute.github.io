@@ -2,20 +2,241 @@
 <!DOCTYPE html>
 <html lang="ja">
 <head>
-<meta charset="UTF-8">
-<title>フランツ・ドップラー | Flute Library</title>
-<link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;600&display=swap" rel="stylesheet">
-<style>
-body { font-family: 'Quicksand', sans-serif; background:#F2F4F3; margin:0; padding:20px; }
-.container { max-width:900px; margin:auto; padding:30px; background:#fff;
-   border-radius:20px; box-shadow:0 4px 10px rgba(0,0,0,0.1); }
-.header-area { display:flex; gap:25px; align-items:center; }
-.header-area img { width:160px; height:160px; border-radius:50%; object-fit:cover; }
-.section-title { font-size:1.4rem; margin-top:30px; border-left:6px solid #A4C3B2; padding-left:10px; }
-.works-table { width:100%; margin-top:10px; border-collapse:collapse; }
-.works-table td { padding:5px 0; border-bottom:1px solid #ddd; }
-.year { width:80px; font-weight:bold; }
-</style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>フランツ・ドップラー - Flute Library</title>
+  <style>
+    body {
+      font-family: "Segoe UI", "Hiragino Sans", "Helvetica Neue", sans-serif;
+      margin: 0;
+      background: linear-gradient(135deg, #f5f1eb 0%, #ede8e0 100%);
+      color: #3a3a3a;
+      line-height: 1.8;
+    }
+
+    header {
+      background: linear-gradient(135deg, #4a5568 0%, #5a6b7f 100%);
+      padding: 50px 20px;
+      text-align: center;
+      border-bottom: 3px solid #c9a876;
+      position: relative;
+      overflow: hidden;
+    }
+
+    header::before {
+      content: "♪";
+      position: absolute;
+      top: 10px;
+      left: 20px;
+      font-size: 3rem;
+      color: #c9a876;
+      opacity: 0.3;
+    }
+
+    header::after {
+      content: "♪";
+      position: absolute;
+      bottom: 10px;
+      right: 20px;
+      font-size: 3rem;
+      color: #c9a876;
+      opacity: 0.3;
+    }
+
+    header h1 {
+      font-size: 2.2rem;
+      margin: 0;
+      color: #f5f1eb;
+      letter-spacing: 2px;
+      font-weight: 300;
+    }
+
+    header p {
+      margin-top: 10px;
+      color: #c9a876;
+      font-size: 1rem;
+      font-style: italic;
+      letter-spacing: 1px;
+    }
+
+    .container {
+      max-width: 900px;
+      margin: 40px auto;
+      background: #fff;
+      padding: 40px;
+      border-radius: 10px;
+      box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+    }
+
+    h2 {
+      font-size: 1.7rem;
+      margin-top: 45px;
+      margin-bottom: 20px;
+      border-left: 5px solid #c9a876;
+      padding-left: 15px;
+      color: #4a5568;
+      font-weight: 500;
+    }
+
+    h2::before {
+      content: "";
+      display: inline-block;
+      width: 8px;
+      height: 8px;
+      background: #c9a876;
+      border-radius: 50%;
+      margin-right: 12px;
+      vertical-align: middle;
+    }
+
+    h3 {
+      font-size: 1.3rem;
+      margin-top: 28px;
+      margin-bottom: 12px;
+      color: #5a6b7f;
+      font-weight: 500;
+      border-bottom: 1px dotted #d9cec0;
+      padding-bottom: 8px;
+    }
+
+    .spice-box {
+      background: linear-gradient(135deg, #f9f6f1 0%, #f1ebe3 100%);
+      border-left: 4px solid #c9a876;
+      border-right: 1px solid #e8ddd0;
+      border-top: 1px solid #e8ddd0;
+      border-bottom: 1px solid #e8ddd0;
+      padding: 20px 22px;
+      margin: 25px 0;
+      border-radius: 6px;
+      box-shadow: inset 0 1px 3px rgba(201, 168, 118, 0.1);
+    }
+
+    .spice-box p {
+      margin: 10px 0;
+      line-height: 1.7;
+    }
+
+    .spice-box strong {
+      color: #4a5568;
+    }
+
+    ul {
+      margin: 15px 0;
+      padding-left: 25px;
+    }
+
+    ul li {
+      margin-bottom: 12px;
+      line-height: 1.7;
+      color: #3a3a3a;
+    }
+
+    a {
+      color: #5a6b7f;
+      text-decoration: none;
+      border-bottom: 2px solid #c9a876;
+      transition: all 0.3s ease;
+    }
+
+    a:hover {
+      color: #c9a876;
+      border-bottom: 2px solid #5a6b7f;
+    }
+
+    .back-link {
+      text-align: center;
+      margin-top: 40px;
+      padding-top: 20px;
+      border-top: 1px solid #e8ddd0;
+    }
+
+    .back-link a {
+      display: inline-block;
+      background: #5a6b7f;
+      color: white;
+      padding: 10px 20px;
+      border-radius: 8px;
+      transition: all 0.3s ease;
+      border: none;
+    }
+
+    .back-link a:hover {
+      background: #4a5568;
+      border: none;
+    }
+
+    .image-block {
+      display: flex;
+      gap: 30px;
+      align-items: flex-start;
+      margin: 30px 0 40px 0;
+      padding-bottom: 30px;
+      border-bottom: 1px solid #e8ddd0;
+    }
+
+    .image-wrapper {
+      text-align: center;
+      flex-shrink: 0;
+    }
+
+    .image-wrapper img {
+      width: 200px;
+      height: 200px;
+      border-radius: 50%;
+      object-fit: cover;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+      display: block;
+      margin-bottom: 8px;
+    }
+
+    .credit {
+      font-size: 0.8rem;
+      color: #666;
+      margin: 0;
+    }
+
+    .info-block {
+      flex: 1;
+    }
+
+    .info-block h1 {
+      margin: 0 0 8px 0;
+      font-size: 1.8rem;
+      color: #4a5568;
+      font-weight: 600;
+    }
+
+    .info-block p {
+      margin: 4px 0;
+      line-height: 1.6;
+      color: #3a3a3a;
+    }
+
+    .info-block strong {
+      color: #4a5568;
+      font-weight: 600;
+    }
+
+    .works-table {
+      width: 100%;
+      margin-top: 15px;
+      border-collapse: collapse;
+    }
+
+    .works-table td {
+      padding: 8px 0;
+      border-bottom: 1px solid #e8ddd0;
+      line-height: 1.6;
+    }
+
+    .year {
+      width: 100px;
+      font-weight: bold;
+      color: #4a5568;
+    }
+
+    .affiliate-wrap { max-width:900px; margin: 40px auto; padding: 0 20px; }
+  </style>
 <!-- Google tag (gtag.js) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-SJJBPGTQ02"></script>
 <script>
@@ -27,11 +248,20 @@ body { font-family: 'Quicksand', sans-serif; background:#F2F4F3; margin:0; paddi
 </head>
 
 <body>
+<header>
+  <h1>フランツ・ドップラー</h1>
+  <p>Franz Doppler / 作曲家・フルート奏者</p>
+</header>
+
 <div class="container">
 
-<div class="header-area">
-  <img src="../images/f_doppler.jpg" alt="フランツ・ドップラー">
-  <div>
+<div class="image-block">
+  <div class="image-wrapper">
+    <img src="../images/f_doppler.jpg" alt="フランツ・ドップラー">
+    <p class="credit">フランツ・ドップラー</p>
+  </div>
+  
+  <div class="info-block">
     <h1>フランツ・ドップラー</h1>
     <p><strong>Franz Doppler</strong></p>
     <p>1821 – 1883</p>
@@ -40,43 +270,189 @@ body { font-family: 'Quicksand', sans-serif; background:#F2F4F3; margin:0; paddi
   </div>
 </div>
 
-<h2 class="section-title">🎼 音楽の特徴</h2>
-<p>華やかな技巧、民族舞曲リズム、美しい旋律を特徴とするロマン派作品。</p>
+<h2 class="section-title">📜 生涯と活動</h2>
+<p>
+  フランツ・ドップラーは、19世紀を代表するフルート奏者・作曲家であり、
+  <strong>フルート音楽のロマン派的発展</strong>を推し進めた重要な人物である。
+  オーストリアに生まれ、早期からヨーロッパ各地で活躍し、
+  ウィーン宮廷楽団首席フルート奏者として、また作曲家として
+  多くの傑作を遺した。
+</p>
 
-<h2 class="section-title">🎵 演奏の心構え</h2>
-<p>オリエンタルな雰囲気と軽妙なスタッカートを大切に、歌心と華やかさの両立を目指す。</p>
+<p>
+  特に兄弟のカール・ドップラーとの共作や、
+  民族音楽（特にハンガリー民謡）をテーマにした作品で知られている。
+  彼の作風は、<strong>ロマン派の優雅さと民族音楽の躍動感</strong>を見事に融合させている。
+</p>
 
-<h2 class="section-title">📚 代表的なフルート作品（年代順）</h2>
+<div class="spice-box">
+  <p><strong>✦ ドップラー兄弟の活躍</strong></p>
+  <p>
+    フランツと兄のカール・ドップラーは、フルート二重奏の大家として知られている。
+    彼らの共作や、各自の作品は、フルート・アンサンブル音楽の重要なレパートリーとなり、
+    今日でも多くのフルート奏者に愛されている。
+  </p>
+</div>
+
+<h2>音楽の特徴</h2>
+<p>
+  ドップラーの音楽は、<strong>華麗なヴィルトゥオーソ技巧と叙情的な旋律の調和</strong>が特徴である。
+  フルートの高い音域の輝かしさを活かし、
+  一方で深い感情表現も可能にする作品設計がなされている。
+</p>
+
+<h3>✦ 民族音楽の影響</h3>
+<p>
+  ハンガリー、チェック、スイスなどの民族舞曲やメロディーを題材にした作品が多く、
+  <strong>オリエンタルな情緒と躍動的なリズム</strong>が作品全体に流れている。
+  これにより、ヨーロッパ音楽に新しい風をもたらした。
+</p>
+
+<h3>✦ フルートの可能性の追求</h3>
+<p>
+  ドップラーはフルート奏者自身であったため、
+  フルートの技巧性と表現力を誰よりも深く理解していた。
+  彼の作品では、フルートが<strong>最高の表現力を発揮できるよう設計</strong>されている。
+</p>
+
+<h2>フルート奏者にとってのドップラー</h2>
+<p>
+  ドップラーのフルート作品は、フルート音楽の発展史において重要な位置を占めている。
+  特に以下の点で高く評価される：
+</p>
+
+<ul>
+  <li><strong>テクニック開発</strong> - 高度なパッセージワークと華麗な音型</li>
+  <li><strong>音色表現</strong> - ロマン派的な豊かな音色の探求</li>
+  <li><strong>民族音楽への親しみ</strong> - ヨーロッパ各地の民族舞曲の特性の理解</li>
+  <li><strong>アンサンブル感覚</strong> - フルート・デュオの大家として二重奏の醍醐味</li>
+</ul>
+
+<div class="spice-box">
+  <p><strong>✦ ドップラーと現代フルート音楽</strong></p>
+  <p>
+    19世紀のロマン派時代に、ドップラーはフルート協奏曲や幻想曲という形式を確立し、
+    フルート独奏楽器としての地位を確固たるものにした。
+    その後のフルート音楽の発展は、ドップラーの成果を基礎としている。
+  </p>
+</div>
+
+<h2>代表的なフルート作品（年代順）</h2>
 <table class="works-table">
-<tr><td class="year">1850</td>
-    <td>
-        <a href="../works/doppler_hungarian_fantasy_page.html">
-            ハンガリー田園幻想曲 Op.26
-        </a>
-    </td>
-    </td><td>Hungarian Pastoral Fantasy Op.26</td></tr>
-    
-    <tr><td class="year">1854</td>
-       <td>
+<tr>
+  <td class="year">1850</td>
+  <td>
+    <a href="../works/doppler_hungarian_fantasy_page.html">
+      <strong>ハンガリー田園幻想曲 Op.26</strong>
+    </a>
+  </td>
+  <td>Hungarian Pastoral Fantasy Op.26</td>
+</tr>
+
+<tr>
+  <td class="year">1854</td>
+  <td>
     <a href="../works/doppler_andanterondo_page.html">
-     アンダンテとロンド Op.25
+      アンダンテとロンド Op.25
     </a>
-      </td>
-     </td> <td>Andante and Rondo Op.25</td></tr>
-      
-      <tr><td class="year">1858</td>
-         <td>
+  </td>
+  <td>Andante and Rondo Op.25</td>
+</tr>
+
+<tr>
+  <td class="year">1858</td>
+  <td>
     <a href="../works/doppler_duettino_hongrois36_page.html">
-     ハンガリー小二重奏曲 Op.36（2Fl）
+      ハンガリー小二重奏曲 Op.36（2Fl）
     </a>
-         </td>
-         <td>Duet on Hungarian Themes Op.36 (2 Flutes)</td></tr><tr><td class="year">1860</td><td>デュオ・コンチェルタント Op.52（兄弟共作）</td><td>Duo Concertant Op.52 (co-written with Karl Doppler)</td></tr><tr><td class="year">1864</td><td>スイスの牧人 Op.20</td><td>The Shepherd of the Swiss Alps Op.20</td></tr><tr><td class="year">1867</td><td>ファンタジー『リゴレット』 Op.38</td><td>Fantasie on 'Rigoletto' Op.38</td></tr><tr><td class="year">1870</td><td>デュオ・コンチェルタント（カールとの共作）</td><td>Concert Duo (co-written with Karl Doppler)</td></tr><tr><td class="year">1870</td><td>『魔笛』の主題による幻想曲（2Fl）</td><td>Fantasie on Themes from 'The Magic Flute' (2 Flutes)</td></tr><tr><td class="year">1875</td><td>チェック舞曲による幻想曲</td><td>Fantasie on Czech Dances</td></tr>
+  </td>
+  <td>Hungarian Duet Op.36 (2 Flutes)</td>
+</tr>
+
+<tr>
+  <td class="year">1860</td>
+  <td><strong>デュオ・コンチェルタント Op.52</strong>（兄カール共作）</td>
+  <td>Duo Concertant Op.52</td>
+</tr>
+
+<tr>
+  <td class="year">1864</td>
+  <td>スイスの牧人 Op.20</td>
+  <td>The Shepherd of the Swiss Alps Op.20</td>
+</tr>
+
+<tr>
+  <td class="year">1867</td>
+  <td>ファンタジー『リゴレット』 Op.38</td>
+  <td>Fantasie on 'Rigoletto' Op.38</td>
+</tr>
+
+<tr>
+  <td class="year">1870</td>
+  <td>『魔笛』の主題による幻想曲（2Fl）</td>
+  <td>Fantasie on Themes from 'The Magic Flute'</td>
+</tr>
+
+<tr>
+  <td class="year">1875</td>
+  <td>チェック舞曲による幻想曲</td>
+  <td>Fantasie on Czech Dances</td>
+</tr>
 </table>
 
+<h3>主要作品の解説</h3>
 
- <!--  <h2 class="section-title">▶️ おすすめ演奏</h2> --> 
- <!--    <p><a href="https://www.youtube.com/embed/sArrnqTcUJs" target="_blank">YouTubeで見る</a></p> --> 
+<p>
+  <strong>ハンガリー田園幻想曲 Op.26</strong>は、ドップラーを代表する傑作である。
+  ハンガリー民謡を素材としながら、フルートの高い音域の輝きと
+  低い音域の温かみを最大限に活用した4楽章構成。
+  技巧性と音楽性の完全な統一を示す。
+</p>
 
+<p>
+  <strong>デュオ・コンチェルタント Op.52</strong>（兄カール共作）は、
+  フルート二重奏の最高峰とも呼ばれる傑作。
+  2本のフルートが対等な役割を持ちながら、時には競い合い、
+  時には調和する、二重奏芸術の完成形である。
+</p>
+
+<div class="spice-box">
+  <p><strong>✦ ドップラーのフルート奏法への貢献</strong></p>
+  <p>
+    ドップラーはフルート奏者として、
+    <strong>ロマン派的な音色表現とテンポ・ルバートの活用</strong>を重視した。
+    彼の作品を演奏することで、フルートの音色的・技巧的な可能性を
+    最大限に引き出すことができる。
+  </p>
 </div>
+
+<h2>演奏の心構え</h2>
+<p>
+  ドップラーを演奏する際には、以下の点が特に重要である：
+</p>
+
+<ul>
+  <li><strong>華麗さと歌心のバランス</strong> - テクニックに溺れずに、常に歌う意識</li>
+  <li><strong>民族音楽の特性理解</strong> - ハンガリー舞曲等のリズムの特性を把握</li>
+  <li><strong>音色の多様性</strong> - 民族的情緒に応じた音色の使い分け</li>
+  <li><strong>アンサンブルでの共演感</strong> - 二重奏では相手とのバランスを常に意識</li>
+  <li><strong>テンポ・ルバートの活用</strong> - 適度な自由さで表現力を高める</li>
+</ul>
+
+<h2>おすすめ演奏</h2>
+<p>
+  <a href="https://www.youtube.com/embed/xa8zK2b0iJ0" target="_blank">▶ YouTubeで見る（ハンガリー田園幻想曲）</a>
+</p>
+
+    <div class="back-link">
+      <a href="../composers/composer_list_page.html">← 作曲家一覧に戻る</a>
+    </div>
+
+  </div>
+
+  <footer style="text-align: center; padding: 20px; color: #999; font-size: 0.85rem; margin-top: 40px;">
+    <p>&copy; 2025-2026 Flute Library</p>
+  </footer>
+
 </body>
 </html>

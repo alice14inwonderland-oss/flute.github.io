@@ -2,55 +2,241 @@
 <!DOCTYPE html>
 <html lang="ja">
 <head>
-<meta charset="UTF-8">
-<title>テオバルト・ベーム | Flute Library</title>
-<link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;600&display=swap" rel="stylesheet">
-<style>
-body { font-family: 'Quicksand', sans-serif; background:#F2F4F3; margin:0; padding:20px; }
-.container { max-width:900px; margin:auto; padding:30px; background:#fff;
-   border-radius:20px; box-shadow:0 4px 10px rgba(0,0,0,0.1); }
-.header-area { display:flex; gap:25px; align-items:center; }
-.header-area img { width:160px; height:160px; border-radius:50%; object-fit:cover; }
-.section-title { font-size:1.4rem; margin-top:30px; border-left:6px solid #A4C3B2; padding-left:10px; }
-.works-table { width:100%; margin-top:10px; border-collapse:collapse; }
-.works-table td { padding:5px 0; border-bottom:1px solid #ddd; }
-.year { width:80px; font-weight:bold; }
-/* 画像と出典のまとめブロック */
-.image-block {
-  text-align: center;
-}
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>テオバルト・ベーム - Flute Library</title>
+  <style>
+    body {
+      font-family: "Segoe UI", "Hiragino Sans", "Helvetica Neue", sans-serif;
+      margin: 0;
+      background: linear-gradient(135deg, #f5f1eb 0%, #ede8e0 100%);
+      color: #3a3a3a;
+      line-height: 1.8;
+    }
 
-/* 写真のサイズ調整（例：200pxに拡大） */
-.image-block img {
-  width: 200px;        /* ←ここを好みの大きさに */
-  height: 200px;
-  border-radius: 50%;
-  object-fit: cover;
-}
+    header {
+      background: linear-gradient(135deg, #4a5568 0%, #5a6b7f 100%);
+      padding: 50px 20px;
+      text-align: center;
+      border-bottom: 3px solid #c9a876;
+      position: relative;
+      overflow: hidden;
+    }
 
-/* 出典の文字サイズ調整 */
-.credit {
-  font-size: 0.8rem;   /* ←ここを好きな大きさに変更 */
-  color: #666;
-  margin-top: 5px;
-}
-.study-box {
-  background: #f0f5f9;
-  border-left: 6px solid #A4C3B2;
-  padding: 15px 20px;
-  margin: 20px 0;
-  border-radius: 8px;
-}
-.tip-box {
-  background: #fff9e6;
-  border-left: 6px solid #ffc107;
-  padding: 15px 20px;
-  margin: 20px 0;
-  border-radius: 8px;
-}
-ul li { margin-bottom: 8px; line-height: 1.6; }
-    
-</style>
+    header::before {
+      content: "♪";
+      position: absolute;
+      top: 10px;
+      left: 20px;
+      font-size: 3rem;
+      color: #c9a876;
+      opacity: 0.3;
+    }
+
+    header::after {
+      content: "♪";
+      position: absolute;
+      bottom: 10px;
+      right: 20px;
+      font-size: 3rem;
+      color: #c9a876;
+      opacity: 0.3;
+    }
+
+    header h1 {
+      font-size: 2.2rem;
+      margin: 0;
+      color: #f5f1eb;
+      letter-spacing: 2px;
+      font-weight: 300;
+    }
+
+    header p {
+      margin-top: 10px;
+      color: #c9a876;
+      font-size: 1rem;
+      font-style: italic;
+      letter-spacing: 1px;
+    }
+
+    .container {
+      max-width: 900px;
+      margin: 40px auto;
+      background: #fff;
+      padding: 40px;
+      border-radius: 10px;
+      box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+    }
+
+    h2 {
+      font-size: 1.7rem;
+      margin-top: 45px;
+      margin-bottom: 20px;
+      border-left: 5px solid #c9a876;
+      padding-left: 15px;
+      color: #4a5568;
+      font-weight: 500;
+    }
+
+    h2::before {
+      content: "";
+      display: inline-block;
+      width: 8px;
+      height: 8px;
+      background: #c9a876;
+      border-radius: 50%;
+      margin-right: 12px;
+      vertical-align: middle;
+    }
+
+    h3 {
+      font-size: 1.3rem;
+      margin-top: 28px;
+      margin-bottom: 12px;
+      color: #5a6b7f;
+      font-weight: 500;
+      border-bottom: 1px dotted #d9cec0;
+      padding-bottom: 8px;
+    }
+
+    .spice-box {
+      background: linear-gradient(135deg, #f9f6f1 0%, #f1ebe3 100%);
+      border-left: 4px solid #c9a876;
+      border-right: 1px solid #e8ddd0;
+      border-top: 1px solid #e8ddd0;
+      border-bottom: 1px solid #e8ddd0;
+      padding: 20px 22px;
+      margin: 25px 0;
+      border-radius: 6px;
+      box-shadow: inset 0 1px 3px rgba(201, 168, 118, 0.1);
+    }
+
+    .spice-box p {
+      margin: 10px 0;
+      line-height: 1.7;
+    }
+
+    .spice-box strong {
+      color: #4a5568;
+    }
+
+    ul {
+      margin: 15px 0;
+      padding-left: 25px;
+    }
+
+    ul li {
+      margin-bottom: 12px;
+      line-height: 1.7;
+      color: #3a3a3a;
+    }
+
+    a {
+      color: #5a6b7f;
+      text-decoration: none;
+      border-bottom: 2px solid #c9a876;
+      transition: all 0.3s ease;
+    }
+
+    a:hover {
+      color: #c9a876;
+      border-bottom: 2px solid #5a6b7f;
+    }
+
+    .back-link {
+      text-align: center;
+      margin-top: 40px;
+      padding-top: 20px;
+      border-top: 1px solid #e8ddd0;
+    }
+
+    .back-link a {
+      display: inline-block;
+      background: #5a6b7f;
+      color: white;
+      padding: 10px 20px;
+      border-radius: 8px;
+      transition: all 0.3s ease;
+      border: none;
+    }
+
+    .back-link a:hover {
+      background: #4a5568;
+      border: none;
+    }
+
+    .image-block {
+      display: flex;
+      gap: 30px;
+      align-items: flex-start;
+      margin: 30px 0 40px 0;
+      padding-bottom: 30px;
+      border-bottom: 1px solid #e8ddd0;
+    }
+
+    .image-wrapper {
+      text-align: center;
+      flex-shrink: 0;
+    }
+
+    .image-wrapper img {
+      width: 200px;
+      height: 200px;
+      border-radius: 50%;
+      object-fit: cover;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+      display: block;
+      margin-bottom: 8px;
+    }
+
+    .credit {
+      font-size: 0.8rem;
+      color: #666;
+      margin: 0;
+    }
+
+    .info-block {
+      flex: 1;
+    }
+
+    .info-block h1 {
+      margin: 0 0 8px 0;
+      font-size: 1.8rem;
+      color: #4a5568;
+      font-weight: 600;
+    }
+
+    .info-block p {
+      margin: 4px 0;
+      line-height: 1.6;
+      color: #3a3a3a;
+    }
+
+    .info-block strong {
+      color: #4a5568;
+      font-weight: 600;
+    }
+
+    .works-table {
+      width: 100%;
+      margin-top: 15px;
+      border-collapse: collapse;
+    }
+
+    .works-table td {
+      padding: 8px 0;
+      border-bottom: 1px solid #e8ddd0;
+      line-height: 1.6;
+    }
+
+    .year {
+      width: 100px;
+      font-weight: bold;
+      color: #4a5568;
+    }
+
+    .affiliate-wrap { max-width:900px; margin: 40px auto; padding: 0 20px; }
+  </style>
 <!-- Google tag (gtag.js) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-SJJBPGTQ02"></script>
 <script>
@@ -60,29 +246,30 @@ ul li { margin-bottom: 8px; line-height: 1.6; }
   gtag('config', 'G-SJJBPGTQ02');
 </script>
 </head>
-
 <body>
-<div class="container">
-
-<div class="header-area"> 
-
-  <!-- 画像＋出典をまとめたブロック -->
-  <div class="image-block">
-    <img src="../images/boehm.jpg" alt="テオバルト・ベーム">
-    <p class="credit">出典: Wikimedia Commons / Public Domain</p>
-  </div>
-
-  <div>
+  <header>
     <h1>テオバルト・ベーム</h1>
-    <p><strong>Theobald Böhm</strong></p>
-    <p>1794 – 1881</p>
-    <p><strong>生まれ：</strong> ドイツ・ミュンヘン</p>
-    <p><strong>職業：</strong> フルート奏者・作曲家・フルート改良者</p>
-  </div>
+    <p>Theobald Böhm / フルート奏者・作曲家・フルート改良者</p>
+  </header>
 
-</div>
+  <div class="container">
 
-<h2 class="section-title">📖 生涯と歴史的背景</h2>
+    <div class="image-block">
+      <div class="image-wrapper">
+        <img src="../images/boehm.jpg" alt="テオバルト・ベーム">
+        <p class="credit">テオバルト・ベーム</p>
+      </div>
+      
+      <div class="info-block">
+        <h1>テオバルト・ベーム</h1>
+        <p><strong>Theobald Böhm</strong></p>
+        <p>1794 – 1881</p>
+        <p><strong>生まれ：</strong> ドイツ・ミュンヘン</p>
+        <p><strong>職業：</strong> フルート奏者・作曲家・フルート改良者</p>
+      </div>
+    </div>
+
+    <h2>生涯と歴史的背景</h2>
 <p>
 テオバルト・ベーム（1794–1881）は、フルート奏者としての実績とフルート製造の革新で知られている。
 1832年に革新的なフルート・メカニズムを完成させ、現代のベーム・システム・フルートの基礎を確立した。
@@ -99,7 +286,7 @@ ul li { margin-bottom: 8px; line-height: 1.6; }
 彼の作品は、フルート奏者にとって<strong>楽器の理解と技巧の向上</strong>のための重要な教材となっている。
 </p>
 
-<h2 class="section-title">🎼 音楽の特徴</h2>
+<h2>音楽の特徴</h2>
 <p>
 テオバルト・ベームの作品は、以下のような特徴を持っています：
 </p>
@@ -110,14 +297,14 @@ ul li { margin-bottom: 8px; line-height: 1.6; }
   <li><strong>高度なテクニック：</strong>高速スケール、複雑なアーティキュレーション、広い音域の活用</li>
 </ul>
 
-<div class="study-box">
+<div class="spice-box">
   <strong>✦ ベームの作品が現代でも重視される理由</strong><br>
   ベームの作品は、フルート奏者の<strong>技術的成長と音楽的表現の両方を同時に育成する</strong>ことが設計の基本。
   単なる技巧練習曲ではなく、フルート音楽の重要なレパートリーとして、
   音大学生からプロの奏者まで幅広く研究されている。
 </div>
 
-<h2 class="section-title">🎵 演奏の心構え</h2>
+<h2>演奏の心構え</h2>
 <p>
 ベームの作品を演奏する際の重要なポイント：
 </p>
@@ -129,26 +316,26 @@ ul li { margin-bottom: 8px; line-height: 1.6; }
   <li><strong>フレーズ感：</strong>技巧に埋もれず、常に旋律の流れを大切にする</li>
 </ul>
 
-<div class="tip-box">
+<div class="spice-box">
   <strong>💡 音大生向けアドバイス</strong><br>
   ベームの作品は、<strong>基礎的な運指の確実性</strong>があってこそ、その音楽的価値が活きる。
   レッスンでは、テクニックと音楽表現を分けて考えるのではなく、
   「正確な指運動 = 音楽表現の自由度」という関係を理解することが重要。
 </div>
 
-<div class="tip-box">
+<div class="spice-box">
   <strong>💡 アマチュア向けアドバイス</strong><br>
   ベームの作品は、練習教材としても演奏のレパートリーとしても価値がある。
   完璧に演奏することより、<strong>「自分が演奏できる範囲で音楽を楽しむ」</strong>という姿勢を大切に。
   定期的な復習を通じて、自分の成長を実感できる喜びが得られる教材。
 </div>
 
-<h2 class="section-title">📚 代表的なフルート作品（年代順）</h2>
+<h2>代表的なフルート作品（年代順）</h2>
 <table class="works-table">
 <tr><td class="year">1818</td><td>大幻想曲 Op.5</td><td>Grand Fantasy, Op.5</td></tr><tr><td class="year">1824</td><td>幻想曲『魔弾の射手』より Op.7</td><td>Fantasy on Themes from 'Der Freischütz', Op.7</td></tr><tr><td class="year">1828</td><td>グランド・ポロネーズ Op.16</td><td>Grand Polonaise, Op.16</td></tr><tr><td class="year">1831</td><td>ロマンツェ Op.27</td><td>Romance, Op.27</td></tr><tr><td class="year">1832</td><td>メロディー Op.22</td><td>Melody, Op.22</td></tr><tr><td class="year">1833</td><td>ヴァリエーション Op.20</td><td>Variations, Op.20</td></tr><tr><td class="year">1842</td><td><a href="../works/boehm_24caprices_op26_page.html">24のカプリス・エチュード, Op. 26</a></td><td>24 Caprices pour la Flûte, Op. 26</td></tr><tr><td class="year">1847</td><td>カプリッチョ Op.26</td><td>Capriccio, Op.26</td></tr><tr><td class="year">1850</td><td>スケルツォ Op.28</td><td>Scherzo, Op.28</td></tr>
 </table>
 
-<h2 class="section-title">🔍 主要作品の詳細</h2>
+<h2>主要作品の詳細</h2>
 
 <h3>✦ 24のカプリス・エチュード, Op. 26（最重要教材）</h3>
 <p>
@@ -180,9 +367,9 @@ ul li { margin-bottom: 8px; line-height: 1.6; }
 コンサート・レパートリーとしても演奏される。
 </p>
 
-<h2 class="section-title">🎓 学習レベル別のアプローチ</h2>
+<h2>学習レベル別のアプローチ</h2>
 
-<div class="study-box">
+<div class="spice-box">
   <strong>★ 初級者（フルート歴1–2年）</strong><br>
   ベームの作品で初級者向けといえば、
   古典的な運指が安定してきた段階で、
@@ -190,21 +377,21 @@ ul li { margin-bottom: 8px; line-height: 1.6; }
   技巧より、<strong>旋律の美しさを感じる</strong>ことを優先。
 </div>
 
-<div class="study-box">
+<div class="spice-box">
   <strong>★ 中級者（フルート歴3–5年、アマチュア）</strong><br>
   <strong>24のカプリス Op.26 の前半（1–10番）</strong>が最適な教材。
   定期的なレッスンと個人練習で、各曲に2–3か月をかけても充分な価値がある。
   同時に、幻想曲やポロネーズなどのコンサート作品も挑戦可能。
 </div>
 
-<div class="study-box">
+<div class="spice-box">
   <strong>★ 上級者（音大学生、プロ志向）</strong><br>
   <strong>24のカプリス Op.26 の全24曲</strong>をマスターすることが目標。
   同時に、グランド・ファンタジー、ポロネーズなどの大型作品で、
   より高度な音楽表現と技巧の統合を追求する。
 </div>
 
-<h2 class="section-title">📌 ベーム作品とベーム・フルートについて</h2>
+<h2>ベーム作品とベーム・フルートについて</h2>
 <p>
 重要な注意：ベームの作品の多くは、
 <strong>ベーム・システム・フルート専用に設計されている</strong>。
@@ -212,7 +399,7 @@ ul li { margin-bottom: 8px; line-height: 1.6; }
 曲の本来の意図が失われる可能性がある。
 </p>
 
-<div class="tip-box">
+<div class="spice-box">
   <strong>⚠️ 重要なポイント</strong><br>
   ベームの作品を演奏する際は、
   できるだけ<strong>ベーム・システムのフルート</strong>を使用すること。
@@ -220,36 +407,15 @@ ul li { margin-bottom: 8px; line-height: 1.6; }
   より効率的な学習と音楽表現が可能になる。
 </div>
 
-<h2 class="section-title">▶️ おすすめ演奏と参考資料</h2>
-<p>
-ベームの作品の演奏を聴く際は、以下の点に注目すると良いでしょう：
-</p>
-<ul>
-  <li><strong>音質の統一性：</strong>全音域で一貫した音色を保つ</li>
-  <li><strong>テンポの安定性：</strong>技巧パッセージでも動揺しない推進力</li>
-  <li><strong>フレーズの流れ：</strong>つなぎ目なく、大きなアーチで旋律が形成されている</li>
-  <li><strong>表現の節度：</strong>ロマン派的な音楽性と古典的な形式感のバランス</li>
-</ul>
+    <div class="back-link">
+      <a href="../composers/composer_list_page.html">← 作曲家一覧に戻る</a>
+    </div>
 
-<p>
-<a href="https://www.youtube.com/results?search_query=Boehm+flute+caprice" target="_blank">
-<strong>YouTubeで「Boehm flute caprice」と検索</strong>
-</a>することで、複数の演奏家による24のカプリスを比較聴取できます。
-</p>
+  </div>
 
-<h2 class="section-title">🌟 ベームの遺産と現代的意義</h2>
-<p>
-テオバルト・ベームは、<strong>フルート奏者であり、楽器製造者であり、教育者</strong>であった。
-彼が遺した最大の遺産は、単に楽器の改良ではなく、
-「技術と音楽の統合」という哲学である。
-</p>
+  <footer style="text-align: center; padding: 20px; color: #999; font-size: 0.85rem; margin-top: 40px;">
+    <p>&copy; 2025-2026 Flute Library</p>
+  </footer>
 
-<p>
-その思想は、現代のフルート教育にも深く影響を与えており、
-ベームの作品を学ぶことは、フルート音楽の本質を理解する上で
-不可欠な過程といえるだろう。
-</p>
-
-</div>
 </body>
 </html>

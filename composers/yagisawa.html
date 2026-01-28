@@ -5,16 +5,76 @@
 <title>八木澤 教司 | Flute Library</title>
 <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;600&display=swap" rel="stylesheet">
 <style>
-body { font-family: 'Quicksand', sans-serif; background:#F2F4F3; margin:0; padding:20px; }
-.container { max-width:900px; margin:auto; padding:30px; background:#fff;
-   border-radius:20px; box-shadow:0 4px 10px rgba(0,0,0,0.1); }
-.header-area { display:flex; gap:25px; align-items:center; }
-.header-area img { width:160px; height:160px; border-radius:50%; object-fit:cover; }
+body { font-family: 'Quicksand', Segoe UI, Hiragino Sans, Helvetica Neue, sans-serif; background: linear-gradient(135deg, #f5f1eb 0%, #ede8e0 100%); margin:0; padding:0; }
+
+header {
+  background: linear-gradient(135deg, #4a5568 0%, #5a6b7f 100%);
+  color: white;
+  text-align: center;
+  padding: 40px 20px;
+  position: relative;
+}
+
+header h1 {
+  margin: 0;
+  font-size: 2.5rem;
+  font-weight: 600;
+  letter-spacing: 2px;
+}
+
+header h1::before,
+header h1::after {
+  content: '♪';
+  margin: 0 15px;
+  opacity: 0.3;
+  font-size: 1.8rem;
+}
+
+header p {
+  margin-top: 10px;
+  color: #c9a876;
+  font-size: 1rem;
+  font-style: italic;
+  letter-spacing: 1px;
+}
+
+.container { max-width:900px; margin:40px auto; padding:40px; background:#fff; border-radius:10px; box-shadow:0 8px 25px rgba(0,0,0,0.1); }
+
+.image-block { display:flex; gap:30px; align-items:flex-start; margin:30px 0 40px 0; padding-bottom:30px; border-bottom:1px solid #e8ddd0; }
+.header-area { display:flex; gap:30px; align-items:flex-start; margin-bottom:30px; padding-bottom:30px; border-bottom:1px solid #e8ddd0; }
+.image-wrapper { text-align:center; flex-shrink:0; }
+.image-wrapper img { width:200px; height:200px; border-radius:50%; object-fit:cover; box-shadow:0 4px 12px rgba(0,0,0,0.15); display:block; margin-bottom:8px; }
+.credit { font-size:0.8rem; color:#666; margin:0; }
+.info-block { flex:1; }
+.info-block h1 { margin:0 0 8px 0; font-size:1.8rem; color:#4a5568; font-weight:600; }
+.info-block p { margin:4px 0; line-height:1.6; color:#3a3a3a; }
+.info-block strong { color:#4a5568; font-weight:600; }
 .section-title { font-size:1.4rem; margin-top:35px; border-left:6px solid #A4C3B2; padding-left:10px; }
 .works-table { width:100%; margin-top:10px; border-collapse:collapse; }
 .works-table td { padding:6px 0; border-bottom:1px solid #ddd; }
 .year { width:90px; font-weight:bold; }
-</style>
+.back-link {
+  text-align: center;
+  margin-top: 40px;
+  padding-top: 20px;
+  border-top: 1px solid #e8ddd0;
+}
+
+.back-link a {
+  display: inline-block;
+  background: #5a6b7f;
+  color: white;
+  padding: 10px 20px;
+  border-radius: 8px;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  border: none;
+}
+
+.back-link a:hover {
+  background: #4a5568;
+  border: none;
+}</style>
 <!-- Google tag (gtag.js) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-SJJBPGTQ02"></script>
 <script>
@@ -26,11 +86,20 @@ body { font-family: 'Quicksand', sans-serif; background:#F2F4F3; margin:0; paddi
 </head>
 
 <body>
+<header>
+  <h1>八木澤 教司</h1>
+  <p>Satoshi Yagisawa / 作曲家・編曲家</p>
+</header>
+
 <div class="container">
 
-<div class="header-area">
-  <img src="../images/yagisawa.jpg" alt="八木澤 教司">
-  <div>
+<div class="image-block">
+  <div class="image-wrapper">
+    <img src="../images/yagisawa.jpg" alt="八木澤 教司">
+    <p class="credit">八木澤 教司</p>
+  </div>
+  
+  <div class="info-block">
     <h1>八木澤 教司</h1>
     <p><strong>Satoshi Yagisawa</strong></p>
     <p>1975 – </p>
@@ -127,6 +196,9 @@ body { font-family: 'Quicksand', sans-serif; background:#F2F4F3; margin:0; paddi
 
 </table>
 
+<div class="back-link">
+  <a href="../composers/composer_list_page.html">← 作曲家一覧に戻る</a>
+</div>
 
 </div>
 </body>

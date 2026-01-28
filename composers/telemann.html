@@ -6,15 +6,152 @@
 <title>ゲオルク・フィリップ・テレマン | Flute Library</title>
 <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;600&display=swap" rel="stylesheet">
 <style>
-body { font-family: 'Quicksand', sans-serif; background:#F2F4F3; margin:0; padding:20px; }
-.container { max-width:900px; margin:auto; padding:30px; background:#fff;
-   border-radius:20px; box-shadow:0 4px 10px rgba(0,0,0,0.1); }
-.header-area { display:flex; gap:25px; align-items:center; }
-.header-area img { width:160px; height:160px; border-radius:50%; object-fit:cover; }
+body { font-family: 'Quicksand', Segoe UI, Hiragino Sans, Helvetica Neue, sans-serif; background: linear-gradient(135deg, #f5f1eb 0%, #ede8e0 100%); margin:0; padding:0; }
+
+header {
+  background: linear-gradient(135deg, #4a5568 0%, #5a6b7f 100%);
+  color: white;
+  text-align: center;
+  padding: 40px 20px;
+  position: relative;
+}
+
+header h1 {
+  margin: 0;
+  font-size: 2.5rem;
+  font-weight: 600;
+  letter-spacing: 2px;
+}
+
+header h1::before,
+header h1::after {
+  content: '♪';
+  margin: 0 15px;
+  opacity: 0.3;
+  font-size: 1.8rem;
+}
+
+header p {
+  margin-top: 10px;
+  color: #c9a876;
+  font-size: 1rem;
+  font-style: italic;
+  letter-spacing: 1px;
+}
+
+.container { max-width:900px; margin:40px auto; padding:40px; background:#fff; border-radius:10px; box-shadow:0 8px 25px rgba(0,0,0,0.1); }
+
+.image-block { display:flex; gap:30px; align-items:flex-start; margin:30px 0 40px 0; padding-bottom:30px; border-bottom:1px solid #e8ddd0; }
+.header-area { display:flex; gap:30px; align-items:flex-start; margin-bottom:30px; padding-bottom:30px; border-bottom:1px solid #e8ddd0; }
+.image-wrapper { text-align:center; flex-shrink:0; }
+.image-wrapper img { width:200px; height:200px; border-radius:50%; object-fit:cover; box-shadow:0 4px 12px rgba(0,0,0,0.15); display:block; margin-bottom:8px; }
+.credit { font-size:0.8rem; color:#666; margin:0; }
+.info-block { flex:1; }
+.info-block h1 { margin:0 0 8px 0; font-size:1.8rem; color:#4a5568; font-weight:600; }
+.info-block p { margin:4px 0; line-height:1.6; color:#3a3a3a; }
+.info-block strong { color:#4a5568; font-weight:600; }
 .section-title { font-size:1.4rem; margin-top:30px; border-left:6px solid #A4C3B2; padding-left:10px; }
 .works-table { width:100%; margin-top:10px; border-collapse:collapse; }
 .works-table td { padding:5px 0; border-bottom:1px solid #ddd; }
 .year { width:80px; font-weight:bold; }
+
+h2 {
+  font-size: 1.3rem;
+  margin-top: 45px;
+  margin-bottom: 20px;
+  border-left: 5px solid #c9a876;
+  padding-left: 15px;
+  color: #4a5568;
+  font-weight: 500;
+}
+
+h2::before {
+  content: "";
+  display: inline-block;
+  width: 8px;
+  height: 8px;
+  background: #c9a876;
+  border-radius: 50%;
+  margin-right: 12px;
+  vertical-align: middle;
+}
+
+h3 {
+  font-size: 1.1rem;
+  margin-top: 28px;
+  margin-bottom: 12px;
+  color: #5a6b7f;
+  font-weight: 500;
+  border-bottom: 1px dotted #d9cec0;
+  padding-bottom: 8px;
+}
+
+.spice-box {
+  background: linear-gradient(135deg, #f9f6f1 0%, #f1ebe3 100%);
+  border-left: 4px solid #c9a876;
+  border-right: 1px solid #e8ddd0;
+  border-top: 1px solid #e8ddd0;
+  border-bottom: 1px solid #e8ddd0;
+  padding: 20px 22px;
+  margin: 25px 0;
+  border-radius: 6px;
+  box-shadow: inset 0 1px 3px rgba(201, 168, 118, 0.1);
+}
+
+.spice-box p {
+  margin: 10px 0;
+  line-height: 1.7;
+}
+
+.spice-box strong {
+  color: #4a5568;
+}
+
+ul {
+  margin: 15px 0;
+  padding-left: 25px;
+}
+
+ul li {
+  margin-bottom: 12px;
+  line-height: 1.7;
+  color: #3a3a3a;
+}
+
+a {
+  color: #5a6b7f;
+  text-decoration: none;
+  border-bottom: 2px solid #c9a876;
+  transition: all 0.3s ease;
+}
+
+a:hover {
+  color: #c9a876;
+  border-bottom: 2px solid #5a6b7f;
+}
+
+.back-link {
+  text-align: center;
+  margin-top: 40px;
+  padding-top: 20px;
+  border-top: 1px solid #e8ddd0;
+}
+
+.back-link a {
+  display: inline-block;
+  background: #5a6b7f;
+  color: white;
+  padding: 10px 20px;
+  border-radius: 8px;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  border: none;
+}
+
+.back-link a:hover {
+  background: #4a5568;
+  border: none;
+}
 </style>
 <!-- Google tag (gtag.js) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-SJJBPGTQ02"></script>
@@ -27,11 +164,20 @@ body { font-family: 'Quicksand', sans-serif; background:#F2F4F3; margin:0; paddi
 </head>
 
 <body>
+<header>
+  <h1>ゲオルク・フィリップ・テレマン</h1>
+  <p>Georg Philipp Telemann / 作曲家</p>
+</header>
+
 <div class="container">
 
-<div class="header-area">
-  <img src="../images/telemann.jpg" alt="ゲオルク・フィリップ・テレマン">
-  <div>
+<div class="image-block">
+  <div class="image-wrapper">
+    <img src="../images/telemann.jpg" alt="ゲオルク・フィリップ・テレマン">
+    <p class="credit">ゲオルク・フィリップ・テレマン</p>
+  </div>
+  
+  <div class="info-block">
     <h1>ゲオルク・フィリップ・テレマン</h1>
     <p><strong>Georg Philipp Telemann</strong></p>
     <p>1681 – 1767</p>
@@ -40,19 +186,181 @@ body { font-family: 'Quicksand', sans-serif; background:#F2F4F3; margin:0; paddi
   </div>
 </div>
 
-<h2 class="section-title">🎼 音楽の特徴</h2>
-<p>明るく親しみやすい旋律、舞曲的リズム、多様な国民様式。</p>
+<h2>生涯と活動</h2>
+<p>
+  ゲオルク・フィリップ・テレマンは、バロック音楽史上
+  <strong>最も多作の作曲家</strong>として知られている。
+  ドイツの北部ザクセン州マクデブルクに生まれ、
+  フランクフルト、ルーベック、そしてハンブルクと、
+  ドイツを代表する主要都市で音楽監督を務めた。
+</p>
 
-<h2 class="section-title">🎵 演奏の心構え</h2>
-<p>軽やかさと躍動感を大切にし、舞曲らしいステップを感じて演奏すると良い。</p>
+<p>
+  テレマンは<strong>ドイツバロック音楽の国際化</strong>に大きな役割を果たした。
+  イタリア音楽、フランス音楽、スラヴ民族音楽など、
+  様々な音楽様式を自身の作品に統合し、
+  <strong>ヨーロッパ音楽の共通言語を形成</strong>した先駆者である。
+  また、当時としては珍しく、自ら出版活動にも携わり、
+  作品を広くヨーロッパに流布させた。
+</p>
 
-<h2 class="section-title">📚 代表的なフルート作品（年代順）</h2>
+<div class="spice-box">
+  <p><strong>✦ テレマンの多作性</strong></p>
+  <p>
+    テレマンは2000曲以上の作品を遺したと言われ、
+    その創作量はバッハをも凌ぐ。このため、
+    当時の音楽出版社からも高い需要があり、
+    多くの作品が演奏・出版されていた。
+  </p>
+</div>
+
+<h2>音楽の特徴</h2>
+<p>
+  テレマンの音楽は、<strong>明るさ、親しみやすさ、躍動感</strong>に特徴がある。
+  バッハのような厳格さや複雑さを追求するのではなく、
+  むしろ<strong>楽しさと理解しやすさを重視</strong>する姿勢が見られる。
+</p>
+
+<h3>✦ 国際的な様式の融合</h3>
+<p>
+  テレマンの作品に登場する「イタリア風」「フランス風」「ポーランド風」といった
+  表記は、当時としては革新的であった。彼は各国の民族音楽を研究し、
+  <strong>ドイツ音楽の枠を超えた普遍的な音楽言語</strong>を創造した。
+</p>
+
+<h3>✦ フルートのレパートリー開拓</h3>
+<p>
+  テレマンは多くのフルート作品を作曲し、
+  バロック時代のフルート音楽の発展に大きく貢献した。
+  特に<strong>無伴奏フルートソロ作品</strong>は、
+  フルート音楽史上重要な位置を占めている。
+</p>
+
+<h2>フルート奏者にとってのテレマン</h2>
+<p>
+  テレマンのフルート作品は、バロック音楽の楽しさを最も直接的に示すレパートリーである。
+  以下の点で特に重要である：
+</p>
+
+<ul>
+  <li><strong>バロック様式の基礎</strong> - 明確で親しみやすい形式</li>
+  <li><strong>国際的な音楽語法</strong> - 様々な民族様式の理解</li>
+  <li><strong>テクニック開発</strong> - 無伴奏作品による音階・アーティキュレーション習得</li>
+  <li><strong>音楽的喜びの実感</strong> - 複雑さより歌心を大切にする姿勢</li>
+  <li><strong>アンサンブル感覚</strong> - トリオソナタなど複数声部の協奏</li>
+</ul>
+
+<div class="spice-box">
+  <p><strong>✦ テレマンとメンテナンス</strong></p>
+  <p>
+    バッハは深刻で複雑な音楽を残し、テレマンは楽しく親しみやすい音楽を残した。
+    この対照は音楽史上興味深いが、<strong>テレマンの作品の底には
+    確かな音楽理論と職人的技巧</strong>が隠れている。決して簡単ではなく、
+    本質的なバロック理解が必要な作品群である。
+  </p>
+</div>
+
+<h2>代表的なフルート作品（年代順）</h2>
 <table class="works-table">
-<tr><td class="year">1732</td><td>無伴奏フルートのための12の幻想曲</td><td></td></tr><tr><td class="year">1732</td><td>フルートソナタ F-dur</td><td></td></tr><tr><td class="year">1732</td><td>組曲 a-moll</td><td></td></tr>
+<tr>
+  <td class="year">1732</td>
+  <td><strong>無伴奏フルートのための12の幻想曲 TWV 40:2-13</strong></td>
+  <td>12 Fantasias for Solo Flute</td>
+</tr>
+
+<tr>
+  <td class="year">1732</td>
+  <td>フルートソナタ ヘ長調 TWV 41:F4</td>
+  <td>Flute Sonata in F major</td>
+</tr>
+
+<tr>
+  <td class="year">1732</td>
+  <td>フルート組曲 イ短調 TWV 41:a2</td>
+  <td>Flute Suite in A minor</td>
+</tr>
+
+<tr>
+  <td class="year">1728-1740</td>
+  <td>フルート協奏曲 ニ長調 TWV 51:D2</td>
+  <td>Flute Concerto in D major</td>
+</tr>
+
+<tr>
+  <td class="year">1728-1740</td>
+  <td>フルート協奏曲 ト長調 TWV 51:G6</td>
+  <td>Flute Concerto in G major</td>
+</tr>
+
+<tr>
+  <td class="year">1728-1740</td>
+  <td>トリオソナタ（フルート2本） TWV 42: F4</td>
+  <td>Trio Sonata (2 Flutes)</td>
+</tr>
+
+<tr>
+  <td class="year">1720以降</td>
+  <td>フルートと通奏低音のためのソナタ（多数）</td>
+  <td>Sonatas for Flute and Basso Continuo</td>
+</tr>
+
+<tr>
+  <td class="year">1720以降</td>
+  <td>フルート協奏曲集（オーケストラ伴奏）</td>
+  <td>Concertos for Flute with Orchestra</td>
+</tr>
 </table>
 
-<h2 class="section-title">▶️ おすすめ演奏</h2>
-<p><a href="https://www.youtube.com/embed/Z6Bz7y7nZ9U" target="_blank">YouTubeで見る</a></p>
+<h3>主要作品の解説</h3>
+
+<p>
+  <strong>無伴奏フルートのための12の幻想曲</strong>は、
+  バロック時代のフルート音楽を代表する傑作である。
+  各幻想曲は3～5分程度の短い楽章で、
+  フルートの全音域を活かしながら、
+  <strong>明確な形式と美しい旋律</strong>を備えている。
+  この作品集はバロックフルート音楽の必須レパートリーである。
+</p>
+
+<p>
+  <strong>フルートソナタ ヘ長調</strong>は、
+  典型的なバロック時代の通奏低音付きソナタで、
+  フルートとチェンバロが親密な対話を繰り広げる。
+  3楽章構成で、イタリア式とフランス式の様式が調和している。
+</p>
+
+<div class="spice-box">
+  <p><strong>✦ テレマンのバロック美学</strong></p>
+  <p>
+    テレマンはバロック時代の終焉に活動し、
+    <strong>古典派への過渡期的存在</strong>である。
+    その作品には、バロック的な複雑さから古典派的な明晰さへ向かう
+    音楽史上の流れが見て取れる。
+  </p>
+</div>
+
+<h2>演奏の心構え</h2>
+<p>
+  テレマンを演奏する際には、以下の点が重要である：
+</p>
+
+<ul>
+  <li><strong>軽やかさと躍動感</strong> - バロック音楽の喜びを表現する</li>
+  <li><strong>明快なアーティキュレーション</strong> - 親しみやすさを損なわずに正確に</li>
+  <li><strong>舞曲的リズム感</strong> - 各民族舞曲の特性を理解して演奏</li>
+  <li><strong>透明性</strong> - 複数声部が聞こえる透明な音で</li>
+  <li><strong>自然な呼吸</strong> - 緊張感よりフレーズの自然な流れ</li>
+  <li><strong>相手とのバランス</strong> - アンサンブル作品では調和を優先</li>
+</ul>
+
+<h2>おすすめ演奏</h2>
+<p>
+  <a href="https://www.youtube.com/embed/Z6Bz7y7nZ9U" target="_blank">▶ YouTubeで見る（無伴奏フルート幻想曲）</a>
+</p>
+
+<div class="back-link">
+  <a href="../composers/composer_list_page.html">← 作曲家一覧に戻る</a>
+</div>
 
 </div>
 </body>

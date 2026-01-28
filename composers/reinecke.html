@@ -6,15 +6,152 @@
 <title>カール・ライネッケ | Flute Library</title>
 <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;600&display=swap" rel="stylesheet">
 <style>
-body { font-family: 'Quicksand', sans-serif; background:#F2F4F3; margin:0; padding:20px; }
-.container { max-width:900px; margin:auto; padding:30px; background:#fff;
-   border-radius:20px; box-shadow:0 4px 10px rgba(0,0,0,0.1); }
-.header-area { display:flex; gap:25px; align-items:center; }
-.header-area img { width:160px; height:160px; border-radius:50%; object-fit:cover; }
+body { font-family: 'Quicksand', Segoe UI, Hiragino Sans, Helvetica Neue, sans-serif; background: linear-gradient(135deg, #f5f1eb 0%, #ede8e0 100%); margin:0; padding:0; }
+
+header {
+  background: linear-gradient(135deg, #4a5568 0%, #5a6b7f 100%);
+  color: white;
+  text-align: center;
+  padding: 40px 20px;
+  position: relative;
+}
+
+header h1 {
+  margin: 0;
+  font-size: 2.5rem;
+  font-weight: 600;
+  letter-spacing: 2px;
+}
+
+header h1::before,
+header h1::after {
+  content: '♪';
+  margin: 0 15px;
+  opacity: 0.3;
+  font-size: 1.8rem;
+}
+
+header p {
+  margin-top: 10px;
+  color: #c9a876;
+  font-size: 1rem;
+  font-style: italic;
+  letter-spacing: 1px;
+}
+
+.container { max-width:900px; margin:40px auto; padding:40px; background:#fff; border-radius:10px; box-shadow:0 8px 25px rgba(0,0,0,0.1); }
+
+.image-block { display:flex; gap:30px; align-items:flex-start; margin:30px 0 40px 0; padding-bottom:30px; border-bottom:1px solid #e8ddd0; }
+.header-area { display:flex; gap:30px; align-items:flex-start; margin-bottom:30px; padding-bottom:30px; border-bottom:1px solid #e8ddd0; }
+.image-wrapper { text-align:center; flex-shrink:0; }
+.image-wrapper img { width:200px; height:200px; border-radius:50%; object-fit:cover; box-shadow:0 4px 12px rgba(0,0,0,0.15); display:block; margin-bottom:8px; }
+.credit { font-size:0.8rem; color:#666; margin:0; }
+.info-block { flex:1; }
+.info-block h1 { margin:0 0 8px 0; font-size:1.8rem; color:#4a5568; font-weight:600; }
+.info-block p { margin:4px 0; line-height:1.6; color:#3a3a3a; }
+.info-block strong { color:#4a5568; font-weight:600; }
 .section-title { font-size:1.4rem; margin-top:30px; border-left:6px solid #A4C3B2; padding-left:10px; }
 .works-table { width:100%; margin-top:10px; border-collapse:collapse; }
 .works-table td { padding:5px 0; border-bottom:1px solid #ddd; }
 .year { width:80px; font-weight:bold; }
+
+h2 {
+  font-size: 1.7rem;
+  margin-top: 45px;
+  margin-bottom: 20px;
+  border-left: 5px solid #c9a876;
+  padding-left: 15px;
+  color: #4a5568;
+  font-weight: 500;
+}
+
+h2::before {
+  content: "";
+  display: inline-block;
+  width: 8px;
+  height: 8px;
+  background: #c9a876;
+  border-radius: 50%;
+  margin-right: 12px;
+  vertical-align: middle;
+}
+
+h3 {
+  font-size: 1.3rem;
+  margin-top: 28px;
+  margin-bottom: 12px;
+  color: #5a6b7f;
+  font-weight: 500;
+  border-bottom: 1px dotted #d9cec0;
+  padding-bottom: 8px;
+}
+
+.spice-box {
+  background: linear-gradient(135deg, #f9f6f1 0%, #f1ebe3 100%);
+  border-left: 4px solid #c9a876;
+  border-right: 1px solid #e8ddd0;
+  border-top: 1px solid #e8ddd0;
+  border-bottom: 1px solid #e8ddd0;
+  padding: 20px 22px;
+  margin: 25px 0;
+  border-radius: 6px;
+  box-shadow: inset 0 1px 3px rgba(201, 168, 118, 0.1);
+}
+
+.spice-box p {
+  margin: 10px 0;
+  line-height: 1.7;
+}
+
+.spice-box strong {
+  color: #4a5568;
+}
+
+ul {
+  margin: 15px 0;
+  padding-left: 25px;
+}
+
+ul li {
+  margin-bottom: 12px;
+  line-height: 1.7;
+  color: #3a3a3a;
+}
+
+a {
+  color: #5a6b7f;
+  text-decoration: none;
+  border-bottom: 2px solid #c9a876;
+  transition: all 0.3s ease;
+}
+
+a:hover {
+  color: #c9a876;
+  border-bottom: 2px solid #5a6b7f;
+}
+
+.back-link {
+  text-align: center;
+  margin-top: 40px;
+  padding-top: 20px;
+  border-top: 1px solid #e8ddd0;
+}
+
+.back-link a {
+  display: inline-block;
+  background: #5a6b7f;
+  color: white;
+  padding: 10px 20px;
+  border-radius: 8px;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  border: none;
+}
+
+.back-link a:hover {
+  background: #4a5568;
+  border: none;
+}
 </style>
 <!-- Google tag (gtag.js) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-SJJBPGTQ02"></script>
@@ -27,11 +164,20 @@ body { font-family: 'Quicksand', sans-serif; background:#F2F4F3; margin:0; paddi
 </head>
 
 <body>
+<header>
+  <h1>カール・ライネッケ</h1>
+  <p>Carl Reinecke / 作曲家・指揮者・ピアニスト</p>
+</header>
+
 <div class="container">
 
-<div class="header-area">
-  <img src="../images/reinecke.jpg" alt="カール・ライネッケ">
-  <div>
+<div class="image-block">
+  <div class="image-wrapper">
+    <img src="../images/reinecke.jpg" alt="カール・ライネッケ">
+    <p class="credit">カール・ライネッケ</p>
+  </div>
+  
+  <div class="info-block">
     <h1>カール・ライネッケ</h1>
     <p><strong>Carl Reinecke</strong></p>
     <p>1824 – 1910</p>
@@ -40,19 +186,179 @@ body { font-family: 'Quicksand', sans-serif; background:#F2F4F3; margin:0; paddi
   </div>
 </div>
 
-<h2 class="section-title">🎼 音楽の特徴</h2>
-<p>透明感あるドイツロマン派の叙情美。フルート作品は歌心に満ち、詩的で流れるような旋律が魅力。</p>
+<h2>生涯と活動</h2>
+<p>
+  カール・ライネッケは、19世紀後半のドイツを代表する作曲家・指揮者であり、
+  <strong>ドイツロマン派音楽の伝統を守り続けた重要な人物</strong>である。
+  ドイツ北部のアルトナに生まれ、ドレスデンの宮廷楽団で長年活動し、
+  1860年からはライプツィヒ・ゲヴァントハウス管弦楽団の指揮者として
+  47年間その職を全うした。
+</p>
 
-<h2 class="section-title">🎵 演奏の心構え</h2>
-<p>歌わせるレガート、自然な語り口、ロマン派としては軽やかで清楚な響きを大切にする。</p>
+<p>
+  ライネッケは<strong>多くの楽器の協奏曲を作曲</strong>し、特に弦楽器とフルートのための作品で知られている。
+  彼の音楽は、バロック・古典派からロマン派への音楽的遺産を継承しながら、
+  <strong>新しい時代の音楽表現を探求する姿勢</strong>を示している。
+  長寿（86歳）だったため、生涯にわたって創作活動を続けた。
+</p>
 
-<h2 class="section-title">📚 代表的なフルート作品（年代順）</h2>
+<div class="spice-box">
+  <p><strong>✦ ライネッケの遺産</strong></p>
+  <p>
+    ライネッケはゲヴァントハウス管弦楽団の指揮者として、
+    <strong>この楽団の黄金期を形成</strong>した。その指導を受けた多くの音楽家が、
+    後に音楽史に名を残している。また、教育者としても、
+    多くの作曲家・演奏家を育成した。
+  </p>
+</div>
+
+<h2>音楽の特徴</h2>
+<p>
+  ライネッケの音楽は、<strong>透明性と叙情性のバランス</strong>に特徴がある。
+  バロック・古典派の形式感を尊重しながらも、ロマン派の豊かな感情表現を加えている。
+  特に<strong>メロディーの美しさ</strong>は、ライネッケの音楽の最大の魅力である。
+</p>
+
+<h3>✦ ドイツロマン派の伝統</h3>
+<p>
+  ライネッケはシューマンやメンデルスゾーンと同時代を生きた。
+  彼の作品には、これらの大作曲家の影響が見られながらも、
+  <strong>古典派的な堅牢性</strong>を失わない独自のスタイルが確立されている。
+</p>
+
+<h3>✦ フルート音楽への貢献</h3>
+<p>
+  ライネッケがフルートのために作曲した協奏曲やソナタは、
+  <strong>フルートの表現可能性を最大限に引き出す設計</strong>となっている。
+  特に『ウンディーネ』ソナタは、ロマン派フルート音楽の最高傑作の一つとされている。
+</p>
+
+<h2>フルート奏者にとってのライネッケ</h2>
+<p>
+  ライネッケのフルート作品は、ロマン派後期音楽の理解と演奏感覚を養うために
+  不可欠なレパートリーである。以下の点で高く評価される：
+</p>
+
+<ul>
+  <li><strong>歌心の表現</strong> - フルートの音色美を最大限に活かしたメロディー作法</li>
+  <li><strong>古典的形式感</strong> - 19世紀後期においても古典的構成を重視</li>
+  <li><strong>音域の活用</strong> - フルートの全音域を効果的に使用した設計</li>
+  <li><strong>ピアノ伴奏の重要性</strong> - ソナタではピアノとフルートの対話が深い</li>
+  <li><strong>詩的な世界観</strong> - 特に『ウンディーネ』では文学的イメージの音楽化</li>
+</ul>
+
+<div class="spice-box">
+  <p><strong>✦ ライネッケの教育的視点</strong></p>
+  <p>
+    ライネッケは教育者としても活動し、多くの練習曲や小品を作曲している。
+    これらの作品は、<strong>技術習得と音楽表現を同時に実現</strong>する設計で、
+    フルート初心者からプロ奏者まで学べる価値を持つ。
+  </p>
+</div>
+
+<h2>代表的なフルート作品（年代順）</h2>
 <table class="works-table">
-<tr><td class="year">1852</td><td>3つの小品</td><td>Three Pieces</td></tr><tr><td class="year">1870</td><td>フルート協奏曲 初稿</td><td>Flute Concerto (1st Version)</td></tr><tr><td class="year">1879</td><td>バラード Op.288</td><td>Ballade, Op.288</td></tr><tr><td class="year">1882</td><td>フルート協奏曲 D-dur Op.283（決定稿）</td><td>Flute Concerto in D major, Op.283</td></tr><tr><td class="year">1885</td><td>フルートソナタ『ウンディーネ』 Op.167</td><td>Flute Sonata 'Undine', Op.167</td></tr><tr><td class="year">1890</td><td>小品集（ロマンス、スケルツォ等）</td><td>Collection of Pieces (Romance, Scherzo, etc.)</td></tr><tr><td class="year">1901</td><td>愛の歌</td><td>Love Song</td></tr>
+<tr>
+  <td class="year">1852</td>
+  <td>3つの小品</td>
+  <td>Three Pieces</td>
+</tr>
+
+<tr>
+  <td class="year">1860</td>
+  <td><strong>フルート協奏曲 ニ長調 初稿</strong></td>
+  <td>Flute Concerto in D major (1st Version)</td>
+</tr>
+
+<tr>
+  <td class="year">1879</td>
+  <td>
+    <a href="../works/Reinecke_balad288_page.html">
+      バラード Op.288
+    </a>
+  </td>
+  <td>Ballade, Op.288</td>
+</tr>
+
+<tr>
+  <td class="year">1882</td>
+  <td><strong>フルート協奏曲 ニ長調 Op.283（決定稿）</strong></td>
+  <td>Flute Concerto in D major, Op.283</td>
+</tr>
+
+<tr>
+  <td class="year">1885</td>
+  <td><strong>フルートソナタ『ウンディーネ』 Op.167</strong></td>
+  <td>Flute Sonata 'Undine', Op.167</td>
+</tr>
+
+<tr>
+  <td class="year">1890</td>
+  <td>小品集（ロマンス、スケルツォ等）</td>
+  <td>Collection of Pieces</td>
+</tr>
+
+<tr>
+  <td class="year">1901</td>
+  <td>愛の歌</td>
+  <td>Love Song</td>
+</tr>
+
+<tr>
+  <td class="year">1905</td>
+  <td>フルート独奏のための練習曲集</td>
+  <td>Etudes for Solo Flute</td>
+</tr>
 </table>
 
-<h2 class="section-title">▶️ おすすめ演奏</h2>
-<p><a href="https://www.youtube.com/embed/4ftU2e6Uu8M" target="_blank">YouTubeで見る</a></p>
+<h3>主要作品の解説</h3>
+
+<p>
+  <strong>フルート協奏曲 ニ長調 Op.283</strong>は、ライネッケの代表作であり、
+  ロマン派フルート協奏曲の傑作である。3楽章構成で、
+  古典的な形式を保ちながら、ロマン派的な豊かな音色表現を要求する。
+  フルート奏者にとって必須のレパートリーである。
+</p>
+
+<p>
+  <strong>フルートソナタ『ウンディーネ』 Op.167</strong>は、
+  ドイツの伝説「ウンディーネ」（水の精）を題材にした標題音楽。
+  4楽章構成で、フルートとピアノが深い対話を繰り広げる。
+  フルートの音色美を最大限に引き出す傑作として、
+  多くのフルート奏者に愛されている。
+</p>
+
+<div class="spice-box">
+  <p><strong>✦ ライネッケの作品の特徴</strong></p>
+  <p>
+    ライネッケの全作品を通じて、<strong>音楽的品格と優雅さ</strong>が一貫している。
+    19世紀後期のドイツ音楽が向かった新しい方向を示しながらも、
+    古典的な価値観を失わない、バランスの取れた音楽家の存在を示している。
+  </p>
+</div>
+
+<h2>演奏の心構え</h2>
+<p>
+  ライネッケを演奏する際には、以下の点が重要である：
+</p>
+
+<ul>
+  <li><strong>歌わせるレガート</strong> - フルートの線を常に歌う意識を持つ</li>
+  <li><strong>古典的な形式感</strong> - ロマン派でありながら形式を尊重</li>
+  <li><strong>自然な語り口</strong> - 過度な表現を避け、自然な会話のように</li>
+  <li><strong>透明な音色</strong> - ドイツロマン派らしい明るく透明な音を目指す</li>
+  <li><strong>ピアノとの対話</strong> - ソナタではピアノを等しいパートナーとして扱う</li>
+  <li><strong>詩的イメージ</strong> - 『ウンディーネ』では文学的背景を理解して演奏</li>
+</ul>
+
+<h2>おすすめ演奏</h2>
+<p>
+  <a href="https://www.youtube.com/embed/4ftU2e6Uu8M" target="_blank">▶ YouTubeで見る（フルート協奏曲 ニ長調）</a>
+</p>
+
+<div class="back-link">
+  <a href="../composers/composer_list_page.html">← 作曲家一覧に戻る</a>
+</div>
 
 </div>
 </body>
