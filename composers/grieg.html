@@ -1,0 +1,460 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>エドヴァルド・グリーグ - Flute Library</title>
+  <style>
+    body {
+      font-family: "Segoe UI", "Hiragino Sans", "Helvetica Neue", sans-serif;
+      margin: 0;
+      background: linear-gradient(135deg, #f5f1eb 0%, #ede8e0 100%);
+      color: #3a3a3a;
+      line-height: 1.8;
+    }
+
+    header {
+      background: linear-gradient(135deg, #4a5568 0%, #5a6b7f 100%);
+      padding: 50px 20px;
+      text-align: center;
+      border-bottom: 3px solid #c9a876;
+      position: relative;
+      overflow: hidden;
+    }
+
+    header::before {
+      content: "♪";
+      position: absolute;
+      top: 10px;
+      left: 20px;
+      font-size: 3rem;
+      color: #c9a876;
+      opacity: 0.3;
+    }
+
+    header::after {
+      content: "♪";
+      position: absolute;
+      bottom: 10px;
+      right: 20px;
+      font-size: 3rem;
+      color: #c9a876;
+      opacity: 0.3;
+    }
+
+    header h1 {
+      font-size: 2.2rem;
+      margin: 0;
+      color: #f5f1eb;
+      letter-spacing: 2px;
+      font-weight: 300;
+    }
+
+    header p {
+      margin-top: 10px;
+      color: #c9a876;
+      font-size: 1rem;
+      font-style: italic;
+      letter-spacing: 1px;
+    }
+
+    .container {
+      max-width: 900px;
+      margin: 40px auto;
+      background: #fff;
+      padding: 40px;
+      border-radius: 10px;
+      box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+    }
+
+    h2 {
+      font-size: 1.7rem;
+      margin-top: 45px;
+      margin-bottom: 20px;
+      border-left: 5px solid #c9a876;
+      padding-left: 15px;
+      color: #4a5568;
+      font-weight: 500;
+    }
+
+    h2::before {
+      content: "";
+      display: inline-block;
+      width: 8px;
+      height: 8px;
+      background: #c9a876;
+      border-radius: 50%;
+      margin-right: 12px;
+      vertical-align: middle;
+    }
+
+    h3 {
+      font-size: 1.3rem;
+      margin-top: 28px;
+      margin-bottom: 12px;
+      color: #5a6b7f;
+      font-weight: 500;
+      border-bottom: 1px dotted #d9cec0;
+      padding-bottom: 8px;
+    }
+
+    .spice-box {
+      background: linear-gradient(135deg, #f9f6f1 0%, #f1ebe3 100%);
+      border-left: 4px solid #c9a876;
+      border-right: 1px solid #e8ddd0;
+      border-top: 1px solid #e8ddd0;
+      border-bottom: 1px solid #e8ddd0;
+      padding: 20px 22px;
+      margin: 25px 0;
+      border-radius: 6px;
+      box-shadow: inset 0 1px 3px rgba(201, 168, 118, 0.1);
+    }
+
+    .spice-box p {
+      margin: 10px 0;
+      line-height: 1.7;
+    }
+
+    .spice-box strong {
+      color: #4a5568;
+    }
+
+    ul {
+      margin: 15px 0;
+      padding-left: 25px;
+    }
+
+    ul li {
+      margin-bottom: 12px;
+      line-height: 1.7;
+      color: #3a3a3a;
+    }
+
+    a {
+      color: #5a6b7f;
+      text-decoration: none;
+      border-bottom: 2px solid #c9a876;
+      transition: all 0.3s ease;
+    }
+
+    a:hover {
+      color: #c9a876;
+      border-bottom: 2px solid #5a6b7f;
+    }
+
+    .back-link {
+      text-align: center;
+      margin-top: 40px;
+      padding-top: 20px;
+      border-top: 1px solid #e8ddd0;
+    }
+
+    .back-link a {
+      display: inline-block;
+      background: #5a6b7f;
+      color: white;
+      padding: 10px 20px;
+      border-radius: 8px;
+      transition: all 0.3s ease;
+      border: none;
+    }
+
+    .back-link a:hover {
+      background: #4a5568;
+      border: none;
+    }
+
+    .image-block {
+      display: flex;
+      gap: 30px;
+      align-items: flex-start;
+      margin: 30px 0 40px 0;
+      padding-bottom: 30px;
+      border-bottom: 1px solid #e8ddd0;
+    }
+
+    .image-wrapper {
+      text-align: center;
+      flex-shrink: 0;
+    }
+
+    .image-wrapper img {
+      width: 200px;
+      height: 200px;
+      border-radius: 50%;
+      object-fit: cover;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+      display: block;
+      margin-bottom: 8px;
+    }
+
+    .credit {
+      font-size: 0.8rem;
+      color: #666;
+      margin: 0;
+    }
+
+    .info-block {
+      flex: 1;
+    }
+
+    .info-block h1 {
+      margin: 0 0 8px 0;
+      font-size: 1.8rem;
+      color: #4a5568;
+      font-weight: 600;
+    }
+
+    .info-block p {
+      margin: 4px 0;
+      line-height: 1.6;
+      color: #3a3a3a;
+    }
+
+    .info-block strong {
+      color: #4a5568;
+      font-weight: 600;
+    }
+
+    .works-table {
+      width: 100%;
+      margin-top: 15px;
+      border-collapse: collapse;
+    }
+
+    .works-table td {
+      padding: 8px 0;
+      border-bottom: 1px solid #e8ddd0;
+      line-height: 1.6;
+    }
+
+    .year {
+      width: 100px;
+      font-weight: bold;
+      color: #4a5568;
+    }
+
+    .affiliate-wrap { max-width:900px; margin: 40px auto; padding: 0 20px; }
+  </style>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-SJJBPGTQ02"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-SJJBPGTQ02');
+</script>
+</head>
+
+<body>
+<header>
+  <h1>エドヴァルド・グリーグ</h1>
+  <p>Edvard Grieg / 作曲家・ピアニスト・指揮者</p>
+</header>
+
+<div class="container">
+
+<div class="image-block">
+  <div class="image-wrapper">
+    <img src="../images/grieg.jpg" alt="エドヴァルド・グリーグ">
+    <p class="credit">エドヴァルド・グリーグ</p>
+  </div>
+  
+  <div class="info-block">
+    <h1>エドヴァルド・グリーグ</h1>
+    <p><strong>Edvard Grieg</strong></p>
+    <p>1843 – 1907</p>
+    <p><strong>生まれ：</strong> ノルウェー・ベルゲン</p>
+    <p><strong>職業：</strong> 作曲家・ピアニスト・指揮者</p>
+  </div>
+</div>
+
+<h2 class="section-title">📜 生涯と活動</h2>
+<p>
+  エドヴァルド・グリーグは、<strong>スカンジナヴィア音楽の大家</strong>であり、
+  ロマン派時代を代表する作曲家である。
+  ノルウェー・ベルゲンに生まれ、その生涯を通じて
+  <strong>北欧の自然と民族音楽の本質</strong>を作品に込めた。
+</p>
+
+<p>
+  グリーグの作風は、ドイツ・ロマン派の影響を受けながらも、
+  ノルウェー民族音楽の鮮烈な特色を保ち続けた。
+  特に「ぺール・ギュント」組曲では、北欧の自然風景が音楽によって
+  <strong>生き生きと描写</strong>されており、
+  この作品はクラシック音楽の最高峰の一つとして今日も愛されている。
+</p>
+
+<div class="spice-box">
+  <p><strong>✦ グリーグとノルウェー文化</strong></p>
+  <p>
+    グリーグはノルウェー音楽の国民的象徴であり、
+    ノルウェー人としてのアイデンティティを強く保ちながら
+    ヨーロッパ音楽界で活躍した。
+    彼の作品には、ノルウェー民謡、自然風景、民族精神が
+    深く刻印されており、国を代表する音楽文化の創造者である。
+  </p>
+</div>
+
+<h2>音楽の特徴</h2>
+<p>
+  グリーグの音楽は、<strong>素朴さと深い叙情性、そして自然描写の巧みさ</strong>が特徴である。
+  ロマン派の感情表現を身につけながらも、
+  ドイツ音楽の重厚さではなく<strong>北欧的な清潔感と透明度</strong>を保っている。
+</p>
+
+<h3>✦ ノルウェー民族音楽の影響</h3>
+<p>
+  グリーグの作品は、ノルウェー民族舞曲（ハリング、スプリンガル等）や
+  民謡の特徴を巧みに取り込んでいる。
+  これにより、ヨーロッパ音楽に<strong>新しい地域的特性</strong>をもたらした。
+</p>
+
+<h3>✦ 自然景描写の詩的表現</h3>
+<p>
+  グリーグは音楽で<strong>北欧の四季自然を見事に表現</strong>する。
+  「朝」では太陽が昇る瞬間の清清しさが、
+  「ぺール・ギュント」の各場面では異なる自然環境が
+  精妙な音響色彩によって描き出されている。
+</p>
+
+<h2>フルート奏者にとってのグリーグ</h2>
+<p>
+  グリーグのフルート作品は、決して多くはないが、
+  その一つ一つが<strong>極めて詩的で、奏者の表現力を大きく試す</strong>。
+  特に注目すべき特徴は以下の通りである：
+</p>
+
+<ul>
+  <li><strong>透明感ある音色</strong> - 北欧の澄んだ空気を音で表現</li>
+  <li><strong>民族的リズム感</strong> - ノルウェー舞曲のリズムの独特性</li>
+  <li><strong>詩的な叙情性</strong> - ロマンティックな旋律美</li>
+  <li><strong>自然描写</strong> - 風景や時間経過を音で描く微細な変化</li>
+  <li><strong>簡潔さ</strong> - 無駄のない、本質的な表現</li>
+</ul>
+
+<div class="spice-box">
+  <p><strong>✦ グリーグの旋律美</strong></p>
+  <p>
+    グリーグの作品は、一度聴いたら忘れられないような
+    <strong>美しく、そして人の心に深く届く旋律</strong>に満ちている。
+    これはノルウェー民謡の素朴な美しさと、
+    ロマン派の感情表現の深さが完璧に統一されているからである。
+  </p>
+</div>
+
+<h2>代表的なフルート関連作品（年代順）</h2>
+<table class="works-table">
+<tr>
+  <td class="year">1867</td>
+  <td>
+    <a href="../works/grieg_morning_page.html">
+      <strong>朝〜ぺール・ギュント組曲より</strong>
+    </a>
+  </td>
+  <td>Morning from Peer Gynt Suite No.1</td>
+</tr>
+
+<tr>
+  <td class="year">1867</td>
+  <td>
+    トロルハウゲンの婚礼の日
+  </td>
+  <td>Bridal Procession in Troldhaugen</td>
+</tr>
+
+<tr>
+  <td class="year">1875</td>
+  <td>
+    鳥の歌（ライプツィヒ編）
+  </td>
+  <td>The Bird and the Hen (Leipzig Collection)</td>
+</tr>
+
+<tr>
+  <td class="year">1880</td>
+  <td>
+    ノルウェー民謡のための変奏曲
+  </td>
+  <td>Variations on Norwegian Folk Songs</td>
+</tr>
+
+<tr>
+  <td class="year">1891</td>
+  <td>
+    オーゥレ・ブルのための前奏曲
+  </td>
+  <td>Prelude for Ole Bull</td>
+</tr>
+
+<tr>
+  <td class="year">1896</td>
+  <td>
+    夜明けの歌
+  </td>
+  <td>Song at Dawn</td>
+</tr>
+</table>
+
+<h3>主要作品の解説</h3>
+
+<p>
+  <strong>朝〜ぺール・ギュント組曲より</strong>は、グリーグを代表する作品である。
+  ぺール・ギュント組曲第1番の冒頭を飾るこの曲は、
+  <strong>太陽が昇り、朝日が山々を照らす瞬間</strong>を、
+  フルートの透明な音色で描き出す。
+  シンプルながら、その情景描写の的確さは群を抜いている。
+</p>
+
+<p>
+  <strong>ノルウェー民謡のための変奏曲</strong>は、
+  グリーグがノルウェー民族音楽をいかに愛し、尊重していたかを示す作品。
+  民謡の旋律を様々に装飾・変奏しながら、その本質的な美しさを
+  引き出していく過程は、クラシック作曲の高い技巧を示している。
+</p>
+
+<div class="spice-box">
+  <p><strong>✦ グリーグのフルート作品の演奏上の課題</strong></p>
+  <p>
+    グリーグのフルート作品を表現するには、
+    <strong>北欧的な透明感と素朴さ、そして深い叙情性</strong>の三つが必須である。
+    ドイツ・ロマン派のような重厚さや劇的な表現より、
+    <strong>自然の詩的描写を第一に考える</strong>ことが重要である。
+  </p>
+</div>
+
+<h2>演奏の心構え</h2>
+<p>
+  グリーグを演奏する際には、以下の点が特に重要である：
+</p>
+
+<ul>
+  <li><strong>透明感のある音色</strong> - 北欧の空気のような澄んだ響き</li>
+  <li><strong>自然な語り口</strong> - 人工的ではなく、自然に溶け込む表現</li>
+  <li><strong>民族的リズム感</strong> - ノルウェー舞曲の独特のリズムを把握</li>
+  <li><strong>叙情性の深さ</strong> - 技巧に溺れず、常に詩的表現を心がける</li>
+  <li><strong>自然描写の意識</strong> - 風景や時間変化を音に映す想像力</li>
+  <li><strong>シンプルさの美学</strong> - 無駄を排除した本質的な表現</li>
+</ul>
+
+<h2>グリーグの遺産</h2>
+<p>
+  グリーグの音楽は、クラシック音楽においてはもちろん、
+  ポピュラー音楽においても、その旋律は多くの人々に親しまれている。
+  また、彼の作風は後代の作曲家（シベリウスなど）に大きな影響を与えた。
+  <strong>民族音楽とクラシック音楽の最高の統一</strong>の例として、
+  永遠に研究と鑑賞の対象であり続けるだろう。
+</p>
+
+    <div class="back-link">
+      <a href="../composers/composer_list_page.html">← 作曲家一覧に戻る</a>
+    </div>
+
+  </div>
+
+  <footer style="text-align: center; padding: 20px; color: #999; font-size: 0.85rem; margin-top: 40px;">
+    <p>&copy; 2025-2026 Flute Library</p>
+  </footer>
+
+</body>
+</html>
